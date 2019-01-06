@@ -5,11 +5,15 @@ import Search from './components/Search';
 
 class App extends Component {
   state = {
-    fakeStock: [
-      {},
-      {}
+    suggestion: [
+      {label: 'APPL'},
+      {label: 'AMZN'},
+      {label: 'BABA'},
+      {label: 'GOOGL'},
     ],
-    term: ''
+    term: '',
+    filtered: [], 
+    stocks: []
   }
 
   handleChange = (e) => {
@@ -18,13 +22,28 @@ class App extends Component {
     })
   }
   
+  filterResults = () => {
+    return this.state.suggestion.map(suggestion => {
+      return suggestion.label.includes(this.state.term)
+      
+    })
+  }
+  
+
 
   render() {
-    console.log(this.state.term)
+    // console.log(this.state.term)
+
     return <div className="App">
+        {this.filterResults()}
         <Search handleChange={this.handleChange} searchTerm={this.state.term} />
       </div>;
   }
 }
 
 export default App;
+
+
+// { symbol: "APPL", companyName: "Apple Inc.", sector: "Technology", open: "154", change: "-1.67", changePercent: "-0.01158" },
+// { symbol: "AMZN", companyName: "Amazon", sector: "Technology", open: "154", change: "-1.67", changePercent: "-0.01158" },
+// { symbol: "BABA", companyName: "Alibaba Group Holding Ltd", sector: "Technology", open: "154", change: "-1.67", changePercent: "-0.01158" },
