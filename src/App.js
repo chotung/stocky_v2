@@ -1,47 +1,23 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
-import Search from './components/Search';
-import StockCard from './components/StockCard';
+import React, { Component } from "react";
+import "./App.css";
+import Header from "./components/Header";
+import StocksContainer from "./containers/StocksContainer";
+// import Search from "./components/Search";
 
 class App extends Component {
-  state = {
-    suggestion: [
-      {label: 'APPL'},
-      {label: 'AMZN'},
-      {label: 'BABA'},
-      {label: 'GOOGL'},
-    ],
-    term: '',
-    filtered: [], 
-    stocks: [],
-    user: {
-      userName: '',
-      password: '',
-      portfolio: [{}],
-    }
-  }
+  state = {};
 
-  handleChange = (e) => {
-    this.setState({
-      term: e.target.value
-    })
+  handleMystock = () => {
+    console.log("clicking")  
   }
   
-  filterResults = () => {
-
-  }
-  
-
-
   render() {
-    // console.log(this.state.term)
-
-    return <div className="App">
-      <StockCard />
-        {/* {this.filterResults()} */}
-        {/* <Search handleChange={this.handleChange} searchTerm={this.state.term} /> */}
-      </div>;
+    return (
+      <div className="App">
+        {/* <Header myStock={this.handleMystock}/> */}
+        {/* <StocksContainer /> */}
+      </div>
+    );
   }
 }
 
@@ -56,6 +32,6 @@ export default App;
 
 // where does filtered state get the information?
 // gets data from "suggestions"
-// filter suggestions based off the term 
+// filter suggestions based off the term
 
 //  then set the state of filtered to whatever the filtered results was
