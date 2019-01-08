@@ -15,21 +15,47 @@ class App extends Component {
   state = {
     stocks: [
       {
-        symbol: "APPL",
         label: "APPL/Apple",
-        name: "Apple",
-        price: 100,
-        price_change: 10,
-        net: 0.0001,
-        open:,
-        high:,
-        low:,
-        mkt_cap:,
-        pe_ratio:,
-        div_yield:,
-        prev_close:,
-        fiftytwo_wk_h:,
-        fiftytwo_wk_l:,
+        symbol: "AAPL",
+        companyName: "Apple Inc.",
+        primaryExchange: "Nasdaq Global Select",
+        sector: "Technology",
+        calculationPrice: "close",
+        open: 148.7,
+        openTime: 1546871400481,
+        close: 147.93,
+        closeTime: 1546894800458,
+        high: 148.83,
+        low: 145.9,
+        latestPrice: 147.93,
+        latestSource: "Close",
+        latestTime: "January 7, 2019",
+        latestUpdate: 1546894800458,
+        latestVolume: 54507159,
+        iexRealtimePrice: 147.89,
+        iexRealtimeSize: 100,
+        iexLastUpdated: 1546894799991,
+        delayedPrice: 147.93,
+        delayedPriceTime: 1546894800458,
+        extendedPrice: 147.85,
+        extendedChange: -0.08,
+        extendedChangePercent: -0.00054,
+        extendedPriceTime: 1546898387133,
+        previousClose: 148.26,
+        change: -0.33,
+        changePercent: -0.00223,
+        iexMarketPercent: 0.03143,
+        iexVolume: 1713160,
+        avgTotalVolume: 48587839,
+        iexBidPrice: 0,
+        iexBidSize: 0,
+        iexAskPrice: 0,
+        iexAskSize: 0,
+        marketCap: 701986726140,
+        peRatio: 12.46,
+        week52High: 233.47,
+        week52Low: 142,
+        ytdChange: -0.06548987841945277
       },
       {
         symbol: "BABA",
@@ -55,25 +81,27 @@ class App extends Component {
 
   handleChange = selectedOption => {
     this.setState({ selectedOption });
-    console.log(`Option selected:`, selectedOption);
+    // console.log(`Option selected:`, selectedOption);
     this.setState({
       singleStock: selectedOption,
       searching: false
-    })
+    });
   };
-
-  
 
   render() {
     const { selectedOption, searching, singleStock } = this.state;
     return (
       <div className="App">
-        {searching ? <Select
-          value={selectedOption}
-          onChange={this.handleChange}
-          // options={this.state.stocks}
-          options={this.state.stocks}
-        /> : <StocksContainer stock={singleStock} />}
+        {searching ? (
+          <Select
+            value={selectedOption}
+            onChange={this.handleChange}
+            // options={this.state.stocks}
+            options={this.state.stocks}
+          />
+        ) : (
+          <StocksContainer stock={singleStock} />
+        )}
         {/* <Header myStock={this.handleMystock}/> */}
       </div>
     );

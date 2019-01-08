@@ -5,11 +5,12 @@ import StockDetails from '../components/StockDetails';
 
 class StocksContainer extends Component {
   render(props) {
-    const { symbol, name, price, net, price_change } = this.props.stock
+    console.log('stocks container', this.props)
+    const { symbol, companyName, close, changePercent, change } = this.props.stock
     
     return (
       <div>
-        <StockHeader symbol={symbol} name={name} price={price} net={net} price_change={price_change} />
+        <StockHeader symbol={symbol} name={companyName} price={close} net={changePercent} price_change={change} />
         <GraphContainer />
         <StockDetails />
         
