@@ -4,10 +4,12 @@ import StockHeader from '../components/StockHeader';
 import StockDetails from '../components/StockDetails';
 
 class StocksContainer extends Component {
-  render() {
+  render(props) {
+    const { symbol, name, price, net, price_change } = this.props.stock
+    
     return (
       <div>
-        <StockHeader />
+        <StockHeader symbol={symbol} name={name} price={price} net={net} price_change={price_change} />
         <GraphContainer />
         <StockDetails />
         

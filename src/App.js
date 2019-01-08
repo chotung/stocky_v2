@@ -57,7 +57,6 @@ class App extends Component {
 
   render() {
     const { selectedOption, searching, singleStock } = this.state;
-    console.log(this.state.singleStock)
     return (
       <div className="App">
         {searching ? <Select
