@@ -20,7 +20,16 @@ class App extends Component {
         name: "Apple",
         price: 100,
         price_change: 10,
-        net: 0.0001
+        net: 0.0001,
+        open:,
+        high:,
+        low:,
+        mkt_cap:,
+        pe_ratio:,
+        div_yield:,
+        prev_close:,
+        fiftytwo_wk_h:,
+        fiftytwo_wk_l:,
       },
       {
         symbol: "BABA",
