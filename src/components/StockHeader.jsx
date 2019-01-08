@@ -1,7 +1,6 @@
 import React from 'react'
 
 function StockHeader(props) {
-  console.log(props)
   const { symbol, name, price, net, price_change } = props
   return (
     <div>

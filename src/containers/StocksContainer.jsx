@@ -12,7 +12,7 @@ class StocksContainer extends Component {
       <div>
         <StockHeader symbol={symbol} name={companyName} price={close} net={changePercent} price_change={change} />
         <GraphContainer />
-        <StockDetails />
+        <StockDetails stock={this.props.stock} />
         
       </div>
     );
