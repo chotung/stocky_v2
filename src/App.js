@@ -40,31 +40,33 @@ class App extends Component {
       }
     ],
     singleStock: {},
-    selectedOption: null
+    selectedOption: null,
+    searching: true
   };
 
   handleChange = selectedOption => {
     this.setState({ selectedOption });
     console.log(`Option selected:`, selectedOption);
+    this.setState({
+      singleStock: selectedOption,
+      searching: false
+    })
   };
 
-  handleMystock = () => {
-    console.log("clicking");
-  };
+  
 
   render() {
-    const { selectedOption } = this.state;
-
+    const { selectedOption, searching, singleStock } = this.state;
+    console.log(this.state.singleStock)
     return (
       <div className="App">
-        <Select
+        {searching ? <Select
           value={selectedOption}
           onChange={this.handleChange}
           // options={this.state.stocks}
           options={this.state.stocks}
-        />
+        /> : <StocksContainer stock={singleStock} />}
         {/* <Header myStock={this.handleMystock}/> */}
-        {/* <StocksContainer /> */}
       </div>
     );
   }
