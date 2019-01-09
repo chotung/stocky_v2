@@ -6,7 +6,7 @@ function StockHeader(props) {
     <div>
       <h1>{name}</h1>
       <p>{symbol}</p>
-      <p>{price}</p>
+      <p>{price}$</p>
       <p>{price_change}/{net}</p>
     </div>
   )
