@@ -18,7 +18,9 @@ class App extends Component {
     singleStock: {},
     selectedOption: null,
     searching: true,
-
+    // user: [
+    //   { name:'', stock }
+    // ]
   };
 
 
@@ -31,7 +33,7 @@ class App extends Component {
     axios.get(url)
     .then(companies => {
       companies.data.map(comp => {
-        options.push({value: comp, label:comp.name })  
+        options.push({value: comp, label:comp.symbol + '/' + comp.name  })  
       })
       // console.log(options)
       
@@ -50,20 +52,15 @@ class App extends Component {
     });
   };
 
+  handleHomeClick = () => {
+    this.setState({ searching: true})
+    this.setState({ selectedOption: null})
+  }
 
-  // addLabel = () => {
-  //   console.log('state stock', this.state.stocks);
-  //   this.state.stocks.map(stock => {  
-  //     console.log('stock', stock);
-  //   })
-  // }
 
   render() {
 
-    const { selectedOption, searching, singleStock, stocks, label } = this.state;
-    // console.log(stocks)
-    // this.addLabel()
-    // console.log(this.state.stocks);
+    const { selectedOption, searching, singleStock } = this.state;
 
     return (
       <div className="App">
@@ -74,7 +71,7 @@ class App extends Component {
             options={this.state.stocks}
           />
         ) : (
-          <StocksContainer stock={singleStock} />
+          <StocksContainer stock={singleStock} home={this.handleHomeClick} />
         )}
         {/* <Header myStock={this.handleMystock}/> */}
       </div>

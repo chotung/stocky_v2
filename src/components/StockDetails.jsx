@@ -18,4 +18,3 @@ function StockDetails(props) {
 }
 
 export default StockDetails
-// open={} high={} low={} mk_tcap={} pe_ratio={} div_yield={} prev_close={} week52_high={} week52_low={}

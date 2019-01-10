@@ -3,6 +3,7 @@ import GraphContainer from './GraphContainer';
 import StockHeader from '../components/StockHeader';
 import StockDetails from '../components/StockDetails';
 import axios from "axios";
+import HomeLogo from '../components/HomeLogo';
 
 class StocksContainer extends Component {
   state = {
@@ -31,6 +32,7 @@ class StocksContainer extends Component {
     
     return (
       <div>
+        <HomeLogo home={this.props.home} />
         <StockHeader symbol={symbol} name={companyName} price={close} net={changePercent} price_change={change} />
         <GraphContainer />
         <StockDetails stock={this.state.data} />
