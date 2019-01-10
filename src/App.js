@@ -6,38 +6,45 @@ import StocksContainer from "./containers/StocksContainer";
 // import Search from "./components/Search";
 import Select from "react-select";
 
-const options = [
-  { value: "chocolate", label: "Chocolate" },
-  { value: "strawberry", label: "Strawberry" },
-  { value: "vanilla", label: "Vanilla" }
-];
+// const options = [
+//   { value: "chocolate", label: "Chocolate" },
+//   { value: "strawberry", label: "Strawberry" },
+//   { value: "vanilla", label: "Vanilla" }
+// ];
 
 const url = "https://api.iextrading.com/1.0/ref-data/symbols";
+const options = []
 
 class App extends Component {
   state = {
     stocks: [
-      {}
+      { value:'start', label:'start'}
     ],
     singleStock: {},
     selectedOption: null,
-    searching: true
+    searching: true,
+
   };
 
 
   componentDidMount() {
     this.fetchData()
+    // this.addLabel()
   }
   
   fetchData = () => {
     axios.get(url)
     .then(companies => {
+      companies.data.map(comp => {
+        options.push({value: comp, label:comp.name })  
+      })
+      // console.log(options)
+      
       this.setState({
-        stocks:companies.data
+        stocks:options
       })
     })
   }
-
 
   handleChange = selectedOption => {
     this.setState({ selectedOption });
@@ -48,17 +55,28 @@ class App extends Component {
     });
   };
 
+
+  // addLabel = () => {
+  //   console.log('state stock', this.state.stocks);
+  //   this.state.stocks.map(stock => {  
+  //     console.log('stock', stock);
+  //   })
+  // }
+
   render() {
-    console.log(this.state)
-    const { selectedOption, searching, singleStock } = this.state;
+
+    const { selectedOption, searching, singleStock, stocks, label } = this.state;
+    console.log(stocks)
+    // this.addLabel()
+    // console.log(this.state.stocks);
+
     return (
       <div className="App">
         {searching ? (
           <Select
             value={selectedOption}
             onChange={this.handleChange}
-            // options={this.state.stocks}
-            options={options}
+            options={this.state.stocks}
           />
         ) : (
           <StocksContainer stock={singleStock} />
