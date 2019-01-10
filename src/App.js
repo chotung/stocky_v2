@@ -6,11 +6,6 @@ import StocksContainer from "./containers/StocksContainer";
 // import Search from "./components/Search";
 import Select from "react-select";
 
-// const options = [
-//   { value: "chocolate", label: "Chocolate" },
-//   { value: "strawberry", label: "Strawberry" },
-//   { value: "vanilla", label: "Vanilla" }
-// ];
 
 const url = "https://api.iextrading.com/1.0/ref-data/symbols";
 const options = []
@@ -66,7 +61,7 @@ class App extends Component {
   render() {
 
     const { selectedOption, searching, singleStock, stocks, label } = this.state;
-    console.log(stocks)
+    // console.log(stocks)
     // this.addLabel()
     // console.log(this.state.stocks);
 
