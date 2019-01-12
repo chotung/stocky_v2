@@ -6,13 +6,20 @@ import axios from "axios";
 import HomeLogo from '../components/HomeLogo';
 
 class StocksContainer extends Component {
+
   state = {
-    data:[]
+    data:[],
+    chartData:{}
+  }
+  
+  UNSAFE_componentWillMount() {
+    this.chartData()
   }
 
   componentDidMount() {
     this.getData()
   }
+
 
   getData = () => {
     const symbol = this.props.stock.value.symbol
@@ -24,6 +31,36 @@ class StocksContainer extends Component {
     })
   }
   
+
+  chartData = () => {
+    this.setState({
+      chartData: {
+        labels: [
+          "Boston",
+          "Worcester",
+          "Springfield",
+          "Lowell",
+          "Cambridge",
+          "New Bedford"
+        ],
+        datasets: [
+          {
+            label: "Population",
+            data: [617594, 181045, 153060, 106519, 105162, 95072],
+            backgroundColor: [
+              "rgba(255, 99, 132, 0.6)",
+              "rgba(54, 162, 235, 0.6)",
+              "rgba(255, 206, 86, 0.6)",
+              "rgba(75, 192, 192, 0.6)",
+              "rgba(153, 102, 225, 0.6)",
+              "rgba(255, 159, 64, 0.6)",
+              "rgba(255, 99, 132, 0.6)"
+            ]
+          }
+        ]
+      }
+    });
+  }
   
 
   render(props) {
@@ -34,7 +71,7 @@ class StocksContainer extends Component {
       <div>
         <HomeLogo home={this.props.home} />
         <StockHeader symbol={symbol} name={companyName} price={close} net={changePercent} price_change={change} />
-        <GraphContainer />
+        <GraphContainer chartData={this.state.chartData} />
         <StockDetails stock={this.state.data} />
         
       </div>

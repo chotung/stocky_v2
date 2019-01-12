@@ -1,32 +1,38 @@
 import React, { Component } from 'react'
-import * as d3 from 'd3'
+import { Bar, Line, Pie } from "react-chartjs-2";
 
 export default class Graph extends Component {
 
-componentDidMount = () => {
-  this.drawChart()
-}
+  state = {
+    chartData: this.props.chartData
+  }
 
-drawChart = () => {
-  const data = [12, 5, 6, 6, 9, 10];
-
-  const svg = d3.select("body").append("svg").attr("width", 700).attr("height", 300);
-  svg
-    .selectAll("rect")
-    .data(data)
-    .enter()
-    .append("rect")
-    .attr("x", (d, i) => i * 70)
-    .attr("y", 0)
-    .attr("width", 25)
-    .attr("height", (d, i) => d)
-    .attr("fill", "green");
-}
-
+  static defaultProps = {
+    displayTitle: true,
+    displayLegend: true,
+    legendPosition: 'right',
+    location: 'City'
+  }
 
   render() {
+    console.log(this.props.chartData);
     return (
-      <div id={"#" + this.props.id}></div>
+      <div className='chart' >
+        <Line
+          data={this.state.chartData}
+          options={{
+            title: {
+              display: this.props.displayTitle,
+              text: 'Test',
+              fontSize: 25
+            },
+            legend: {
+              display: this.props.displayLegend,
+              position: this.props.legendPosition
+            }
+          }}
+        /> 
+      </div>
     )
   }
 }
