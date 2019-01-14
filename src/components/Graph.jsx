@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Bar, Line, Pie } from "react-chartjs-2";
+import {Line } from "react-chartjs-2";
 
 export default class Graph extends Component {
 
@@ -29,7 +29,8 @@ export default class Graph extends Component {
             legend: {
               display: this.props.displayLegend,
               position: this.props.legendPosition
-            }
+            },
+            
           }}
         /> 
       </div>
