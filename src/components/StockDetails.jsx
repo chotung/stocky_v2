@@ -2,7 +2,7 @@ import React from 'react'
 
 function StockDetails(props) {
   const { open, high, low, marketCap, peRatio, previousClose, week52High, week52Low } = props.stock;
-  console.log(props)
+  // console.log(props)
   return <div>
       <ul>
         <li>Open: {open}</li>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {Line } from "react-chartjs-2";
+import { Line } from "react-chartjs-2";
 
 export default class Graph extends Component {
 
@@ -8,29 +8,22 @@ export default class Graph extends Component {
   }
 
   static defaultProps = {
-    displayTitle: true,
-    displayLegend: true,
-    legendPosition: 'right',
-    location: 'City'
+    
   }
 
   render() {
-    console.log(this.props.chartData);
+    // console.log(this.props.chartData);
     return (
       <div className='chart' >
         <Line
           data={this.state.chartData}
           options={{
             title: {
-              display: this.props.displayTitle,
-              text: 'Test',
-              fontSize: 25
+              display: false
             },
             legend: {
-              display: this.props.displayLegend,
-              position: this.props.legendPosition
-            },
-            
+              display: false
+            }
           }}
         /> 
       </div>

@@ -1,14 +1,12 @@
 import React, { Component } from 'react'
 import './App.css'
 import axios from 'axios'
-// import Header from "./components/Header";
 import StocksContainer from './containers/StocksContainer'
-// import Search from "./components/Search";
 import Select from 'react-select'
 
 // if what i type matches something in the symbols return those only?
 const url = 'https://api.iextrading.com/1.0/ref-data/symbols'
-const options = [{ value: 'start', label: 'start' }]
+const options = []
 
 class App extends Component {
   state = {
@@ -44,8 +42,8 @@ class App extends Component {
   }
 
   handleChange = selectedOption => {
-    // this.setState({ selectedOption });
-    console.log(`Option selected:`, selectedOption)
+    this.setState({ selectedOption });
+    // console.log(`Option selected:`, selectedOption)
     this.setState({
       singleStock: selectedOption,
       searching: false
