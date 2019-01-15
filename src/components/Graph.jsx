@@ -1,22 +1,29 @@
 import React, { Component } from 'react'
 import { Line } from "react-chartjs-2";
+// import axios from 'axios'
 
 export default class Graph extends Component {
 
   state = {
-    chartData: this.props.chartData
+    chartData: []
   }
+  
 
-  static defaultProps = {
+
+
+  // static defaultProps = {
     
-  }
+  // }
 
   render() {
-    // console.log(this.props.chartData);
+    // debugger
+    console.log('GRAPH PROPS', this.props)
+    // console.log('GRAPH STATE', this.state)
+
     return (
       <div className='chart' >
         <Line
-          data={this.state.chartData}
+          data={this.props.chartData}
           options={{
             title: {
               display: false
