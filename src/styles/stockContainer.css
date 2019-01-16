@@ -1,0 +1,32 @@
+.one-stock {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  box-sizing: border-box;
+  /* background-color: black; */
+}
+
+.stock-card {
+  border: 1px soild black;
+  border-radius: 12px;
+}
+
+.stock-card p, li {
+  padding: .5em .75em;
+  
+}
+
+.stock-head p {
+  background-color: pink;
+  margin: 0;
+}
+
+
+.stock-details ul{
+  padding: 0;
+  margin: 0;
+}
+
+.stock-details li {
+  background-color: pink;
+  list-style: none;
+}

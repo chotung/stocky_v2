@@ -7,9 +7,6 @@ export default class Graph extends Component {
   state = {
     chartData: []
   }
-  
-
-
 
   // static defaultProps = {
     
@@ -17,9 +14,8 @@ export default class Graph extends Component {
 
   render() {
     // debugger
-    console.log('GRAPH PROPS', this.props)
+    // console.log('GRAPH PROPS', this.props)
     // console.log('GRAPH STATE', this.state)
-
     return (
       <div className='chart' >
         <Line
@@ -30,7 +26,8 @@ export default class Graph extends Component {
             },
             legend: {
               display: false
-            }
+            },
+            maintainAspectRatio: true
           }}
         /> 
       </div>

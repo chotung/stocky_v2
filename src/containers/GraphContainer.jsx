@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import GraphHeader from '../components/GraphHeader';
 import Graph from '../components/Graph';
 import axios from 'axios'
+import '../styles/graphContainer.css'
 
 class GraphContainer extends Component {
 
@@ -54,15 +55,9 @@ class GraphContainer extends Component {
           // data: [150, 134, 144],
           data: open,
           // Data points are stock high prices
-          backgroundColor: [
-            'rgba(255, 99, 132, 0.6)',
-            'rgba(54, 162, 235, 0.6)',
-            'rgba(255, 206, 86, 0.6)',
-            'rgba(75, 192, 192, 0.6)',
-            'rgba(153, 102, 225, 0.6)',
-            'rgba(255, 159, 64, 0.6)',
-            'rgba(255, 99, 132, 0.6)'
-          ]
+          backgroundColor: 
+            'orange',
+          borderColor: 'blue'
         }
       ]
     }
@@ -80,7 +75,7 @@ class GraphContainer extends Component {
   render() {
     console.log('Graph Container', this.props)
     // console.log('Graph Container State', this.state)
-    return <div>
+    return <div className="graph">
          <GraphHeader handleClick={this.handleClick} />
          {this.state.show === false ? null : <Graph chartData={this.state.chartData} />}
       </div>;

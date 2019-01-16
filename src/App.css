@@ -1,7 +1,13 @@
 .App {
+  /* position: relative; */
   /* position: absolute;
   text-align: center;
   top: 50%;
   left: 50%; */
 }
 
+.suggest {
+  position: absolute;
+  top: 40%;
+  width: 100%;
+}
