@@ -1,72 +1,61 @@
-import React, { Component } from 'react';
-import GraphHeader from '../components/GraphHeader';
-import Graph from '../components/Graph';
+import React, { Component } from 'react'
+import GraphHeader from '../components/GraphHeader'
+import Graph from '../components/Graph'
 import axios from 'axios'
 import '../styles/graphContainer.css'
 
 class GraphContainer extends Component {
   state = {
     chartData: [],
-    range: "1d",
+    range: '1d',
     show: false,
-    test:'test'
-  };
+  }
 
   componentDidMount = () => {
-    this.chartData();
-  };
-
-  // componentWillReceiveProps = (nextProps) => {
-  //   this.setState({
-  //     test: nextProps
-  //   })
-  // }
-  
+    this.chartData()
+  }
   
   chartData = () => {
-    // const range = this.state.testRange
-    const symbol = this.props.symbol;
-
-    const range = this.state.range;
+    const symbol = this.props.symbol
     // const symbol = 'AAPL'
-    let label = [];
-    let open = [];
-
+    const range = this.state.range
     axios
       .get(`https://api.iextrading.com/1.0/stock/${symbol}/chart/${range}`)
       .then(res => {
-        let quotes = res.data;
-
-        return quotes.map(quote => {
-          let tempTime = quote.minute.split(":");
-          let combined = tempTime[0] + tempTime[1];
-          // console.log('combined', combined)
-          let parsed = parseInt(combined);
-          // console.log('parsed', parsed)
+        let quotes = res.data
+        let label = []
+        let openPrice = []
+         quotes.map(quote => {
+        
 
           // if range equals 1d
           // Switch(range) {case 1d: return something}
-          if (parsed % 5 === 0) {
-            label.push(quote.label);
-            // console.log(label)
-            open.push(quote.open);
-            // console.log(open)
-          }
+           if (range === '1d') {
+             let tempTime = quote.minute.split(':')
+             let combined = tempTime[0] + tempTime[1]
+             // // console.log('combined', combined)
+             let parsed = parseInt(combined)
+             // console.log('parsed', parsed)
+             if (parsed % 5 === 0) {
+               label.push(quote.label)
+               // console.log(label)
+               openPrice.push(quote.open)
+               // console.log(open)
+             }
+           } else {
+             label.push(quote.label)
+             openPrice.push(quote.open)
+           }
 
-        });
-      });
 
-      this.setGraph(label, open)
-   
-    // if range equals 5d
-    // if range equals 1m
-    // if range equals 6m
-    // if range equals ytd
-    // if range equals 1y
-    // if range equals 5y
-    // if range equals max
-  };
+        })
 
+        this.setGraph(label, openPrice)
+
+
+      })
+
+  }
 
   setGraph = (label, open) => {
     this.setState({
@@ -81,80 +70,38 @@ class GraphContainer extends Component {
             data: open,
             // Data points are stock high prices
             backgroundColor: [
-              "pink"
-              // 'rgba(255, 99, 132, 0.6)',
-              // 'rgba(54, 162, 235, 0.6)',
-              // 'rgba(255, 206, 86, 0.6)',
-              // 'rgba(75, 192, 192, 0.6)',
-              // 'rgba(153, 102, 225, 0.6)',
-              // 'rgba(255, 159, 64, 0.6)',
-              // 'rgba(255, 99, 132, 0.6)'
+              'pink'
             ],
-            borderColor: ["blue"]
+            borderColor: ['blue']
           }
         ]
-      }
-    });
-  }
-  
-
-  handleClick = () => {
-    // console.log('helllo')
-    this.setState(prevState => ({
-      show: !prevState.show
-    }));
-  };
-
-  changeTimeRange = e => {
-    // console.log(e.target.innerText);
-    this.setState({
-      range: e.target.innerText
+      },
+      show: true
     })
+  }
 
-    const symbol = this.props.symbol;
+  swapRange = (e) => { 
+    console.log(e.target.innerText)
+    this.setState({ range: e.target.innerText},
+      () => this.chartData()) 
+    // console.log('Range state', this.state.range)
+  }
 
-    const range = this.state.range;
-    console.log(range)
-    // const symbol = 'AAPL'
-    let label = [];
-    let open = [];
-    axios.get(`https://api.iextrading.com/1.0/stock/${symbol}/chart/${range}`)
-      .then(res => {
-        // console.log(res.data)
-        let quotes = res.data
-        if(range === '1d') {
-          return quotes.map(quote => {
-            let tempTime = quote.minute.split(":");
-            let combined = tempTime[0] + tempTime[1];
-            let parsed = parseInt(combined);
-            if (parsed % 5 === 0) {
-              label.push(quote.label);
-              open.push(quote.open);
-            }
-          })
-        }
-        return quotes.map(quote => {
-          // console.log(quote)
-          label.push(quote.label);
-          open.push(quote.open);
-
-        })
-      })
-      this.setGraph(label, open)
-      
-  };
-
-
-  render() {
+  render () {
     // console.log('Graph Container', this.props)
     console.log('Graph Container State', this.state)
-    return <div className="graph">
-      <button className='show-graph' onClick={this.handleClick} >Show Graph</button>
+    return (
+      <div className='graph'>
 
-         <GraphHeader handleClick={this.handleClick} range={this.changeTimeRange}  />
-         {this.state.show === false ? null : <Graph chartData={this.state.chartData} />}
-      </div>;
+        <GraphHeader
+          range={(e) => this.swapRange(e)}
+        />
+        {this.state.show === false ? null : (
+          <Graph chartData={this.state.chartData} />
+        )}
+      </div>
+    )
   }
 }
 
-export default GraphContainer;
+export default GraphContainer

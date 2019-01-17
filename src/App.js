@@ -4,6 +4,9 @@ import axios from "axios";
 import StocksContainer from "./containers/StocksContainer";
 import Select from "react-select";
 import Footer from "./components/Footer";
+import MenuList from "./components/MenuList"
+
+
 
 const url = "https://api.iextrading.com/1.0/ref-data/symbols";
 const options = [];
@@ -12,15 +15,15 @@ const options = [];
 
 class App extends Component {
   state = {
-    stocks: [{ value: "start", label: "start" }],
+    stocks: [{}],
     singleStock: {},
     selectedOption: null,
     searching: true,
-    searchTerm: "",
     // user: [
     //   { name:'', stock }
     // ]
-    chartData: []
+    chartData: [],
+
   };
 
   componentDidMount() {
@@ -29,6 +32,10 @@ class App extends Component {
   }
 
   fetchData = () => {
+
+    //  Do you  mean I shoudl wrap this in a setTimeOut()?
+
+
     axios.get(url).then(companies => {
       companies.data.map(comp => {
         // console.log(comp.symbol, comp.name)
@@ -72,6 +79,7 @@ class App extends Component {
               value={selectedOption}
               onChange={this.handleChange}
               options={stocks}
+              components={{ MenuList }}
             />
           </div>
         ) : (

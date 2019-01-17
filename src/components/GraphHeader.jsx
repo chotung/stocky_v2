@@ -10,7 +10,7 @@ export default function GraphHeader(props) {
       <h2 onClick={props.range}>YTD</h2>
       <h2 onClick={props.range}>1y</h2>
       <h2 onClick={props.range}>5y</h2>
-      <h2 onClick={props.range}>Max</h2>
+      {/* <h2 onClick={props.range}>Max</h2> */}
     </div>
   )
 }
