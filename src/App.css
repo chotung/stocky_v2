@@ -1,7 +1,28 @@
 .App {
+  /* position: relative; */
   /* position: absolute;
   text-align: center;
   top: 50%;
   left: 50%; */
 }
+#head {
+  position: absolute;
+  top:25%;
+  left: 40%;
+  text-transform: uppercase;
+  font-size: 3.5em;
+}
+.suggest {
+  position: absolute;
+  top: 40%;
+  left: 9.5%;
+  width: 80%;
+}
 
+footer {
+  position: absolute;
+  bottom: 0%;
+  left: 45%;
+  font-weight: 900;
+  font-size: .69em;
+}

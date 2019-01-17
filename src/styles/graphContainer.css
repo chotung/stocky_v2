@@ -1,0 +1,31 @@
+.graph {
+  /* background-color: orange; */
+  position: relative;
+  height: 100vh;
+}
+
+.show-graph {
+  position: absolute;
+  top: 6%;
+}
+
+.graph-buttons {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  position: absolute;
+  top: 15%;
+  border: 1px solid black;
+  border-radius: 12px;
+  width: 100%;
+  /* right: 10px; */
+}
+
+.graph-buttons h2 {
+  text-align: center;
+}
+
+.chart {
+  position: absolute;
+  top: 30%;
+  width: 100%;
+}

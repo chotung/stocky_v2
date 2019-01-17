@@ -5,10 +5,15 @@ import { Line } from "react-chartjs-2";
 export default class Graph extends Component {
 
   state = {
-    chartData: []
+    chartData: [],
+    test:'test'
   }
-  
 
+  // componentDidMount() {
+  //   this.forceUpdate()
+  // }
+  
+  
 
 
   // static defaultProps = {
@@ -17,19 +22,11 @@ export default class Graph extends Component {
 
   render() {
     // debugger
-    console.log('GRAPH PROPS', this.props)
+    // console.log('GRAPH PROPS', this.props)
     // console.log('GRAPH STATE', this.state)
-
+    // this.forceUpdate()
     return (
       <div className='chart' >
-      {/* <h3 onClick={props.timeRange} value="1d" >1D</h3>
-      <h3 onClick={props.timeRange} value="5d" >5D</h3>
-      <h3 onClick={props.timeRange} value="" >1M</h3>
-      <h3 onClick={props.timeRange} value="" >6M</h3>
-      <h3 onClick={props.timeRange} value="" >YTD</h3>
-      <h3 onClick={props.timeRange} value="" >1Y</h3>
-      <h3 onClick={props.timeRange} value="" >5Y</h3>
-      <h3 onClick={props.timeRange} value="" >MAX</h3> */}
         <Line
           data={this.props.chartData}
           options={{
@@ -38,7 +35,8 @@ export default class Graph extends Component {
             },
             legend: {
               display: false
-            }
+            },
+            maintainAspectRatio: true
           }}
         /> 
       </div>

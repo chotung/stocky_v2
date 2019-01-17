@@ -1,0 +1,42 @@
+.one-stock {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  box-sizing: border-box;
+  /* background-color: black; */
+}
+
+.stock-card {
+  display: inline;
+  text-align: center;
+  position: relative;
+  /* margin-top: 10em; */
+  border: 1px soild black;
+  /* border-radius: 12px; */
+  /* background-color: pink; */
+}
+
+.logo {
+  /* margin-right: 1em; */
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.stock-card p, li {
+  padding: .5em .75em;
+  
+}
+
+.stock-head p {
+  /* background-color: pink; */
+  margin: 0;
+}
+
+
+.stock-details ul{
+  padding: 0;
+  margin: 0;
+}
+
+.stock-details li {
+  /* background-color: pink; */
+  list-style: none;
+}
