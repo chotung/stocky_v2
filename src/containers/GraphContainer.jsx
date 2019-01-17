@@ -90,6 +90,8 @@ class GraphContainer extends Component {
   render () {
     // console.log('Graph Container', this.props)
     console.log('Graph Container State', this.state)
+
+    const { chartData, range} = this.state
     return (
       <div className='graph'>
 
@@ -97,7 +99,7 @@ class GraphContainer extends Component {
           range={(e) => this.swapRange(e)}
         />
         {this.state.show === false ? null : (
-          <Graph chartData={this.state.chartData} />
+          <Graph chartData={chartData} range={range} />
         )}
       </div>
     )

@@ -1,31 +1,45 @@
 .graph {
   /* background-color: orange; */
   position: relative;
-  height: 100vh;
+  /* height: 100vh; */
 }
 
-.show-graph {
-  position: absolute;
-  top: 6%;
-}
 
 .graph-buttons {
   display: grid;
+  /* position: absolute; */
   grid-template-columns: repeat(7, 1fr);
-  position: absolute;
-  top: 15%;
-  border: 1px solid black;
-  border-radius: 12px;
-  width: 100%;
-  /* right: 10px; */
+  /* border: 1px solid black;
+  border-radius: 12px; */
+  width: 97%;
+  height: 2em;
+  margin: 0em 1em 1em 1em;
+  /* margin-left: 1%; */
+  padding-bottom: 1em;
 }
 
 .graph-buttons h2 {
   text-align: center;
+  color: rgba(255, 255, 255, 0.603);
+  background-color: rgb(101, 102, 163);
+  border: 1px solid black;
+  border-radius: 6px;
+  /* width: 50%; */
+  padding: .5em 0 .5em 0;
+  font-size: 1em;
 }
 
 .chart {
-  position: absolute;
+  width: 97%;
+  margin-top: 1em;
+  margin-left: 1em;
+  /* position: absolute; */
+  /* margin: 2em; */
+  /* position: absolute;
   top: 30%;
-  width: 100%;
+  width: 100%; */
+}
+
+.graph-buttons h2:hover {
+  background-color: rgba(101, 102, 163, 0.603);
 }

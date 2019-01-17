@@ -85,7 +85,7 @@ class App extends Component {
         ) : (
           <StocksContainer stock={singleStock} home={this.handleHomeClick} />
         )}
-        <Footer />
+        {searching ? <Footer />: null}
       </div>
     );
   }

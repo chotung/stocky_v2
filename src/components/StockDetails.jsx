@@ -4,6 +4,7 @@ function StockDetails(props) {
   const { open, high, low, marketCap, peRatio, previousClose, week52High, week52Low } = props.stock;
   // console.log(props)
   return <div className="stock-details">
+      <h1>Details</h1>
       <ul>
         <li>Open: {open}</li>
         <li>High: {high}</li>

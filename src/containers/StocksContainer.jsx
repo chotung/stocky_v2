@@ -48,8 +48,11 @@ class StocksContainer extends Component {
     const { symbol } = this.props.stock.value
     return (
       <div className="one-stock">
-        <div className='stock-card'>
           <HomeLogo home={this.props.home} />
+
+        <GraphContainer symbol={symbol} />
+
+        <div className='stock-card'>
           <StockHeader
             symbol={symbol}
             name={companyName}
@@ -59,7 +62,6 @@ class StocksContainer extends Component {
           />
           <StockDetails stock={data} />
         </div>
-        <GraphContainer symbol={symbol} />
       </div>
     )
   }
