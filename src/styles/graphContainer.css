@@ -1,6 +1,6 @@
 .graph {
+  /* grid-area: graph; */
   /* background-color: orange; */
-  position: relative;
   /* height: 100vh; */
 }
 
@@ -11,7 +11,7 @@
   grid-template-columns: repeat(7, 1fr);
   /* border: 1px solid black;
   border-radius: 12px; */
-  width: 97%;
+  width: 95%;
   height: 2em;
   margin: 0em 1em 1em 1em;
   /* margin-left: 1%; */
@@ -30,7 +30,7 @@
 }
 
 .chart {
-  width: 97%;
+  width: 95%;
   margin-top: 1em;
   margin-left: 1em;
   /* position: absolute; */

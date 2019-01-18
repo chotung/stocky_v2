@@ -5,7 +5,7 @@ import StocksContainer from "./containers/StocksContainer";
 import Select from "react-select";
 import Footer from "./components/Footer";
 import MenuList from "./components/MenuList"
-
+import NewsContainer from "./containers/NewsContainer"
 
 
 const url = "https://api.iextrading.com/1.0/ref-data/symbols";
@@ -19,11 +19,6 @@ class App extends Component {
     singleStock: {},
     selectedOption: null,
     searching: true,
-    // user: [
-    //   { name:'', stock }
-    // ]
-    chartData: [],
-
   };
 
   componentDidMount() {
@@ -70,8 +65,7 @@ class App extends Component {
     // console.log( selectedOption )
     return (
       <div className="App">
-        {searching ? <h1 id='head'>Stocky</h1> : null}
-        {searching ? (
+        {/* {searching ? 
           <div className="suggest">
             <Select
               className="suggest"
@@ -82,9 +76,25 @@ class App extends Component {
               components={{ MenuList }}
             />
           </div>
-        ) : (
-          <StocksContainer stock={singleStock} home={this.handleHomeClick} />
-        )}
+         : <StocksContainer stock={singleStock} home={this.handleHomeClick} />} */}
+
+         <div className="top-bar">
+            <h1 id='head'>Stocky</h1>
+            <div className="select-bar" >
+            <Select
+              placeholder="Ticker Symbol/Company"
+              value={selectedOption}
+              onChange={this.handleChange}
+              options={stocks}
+              components={{ MenuList }}
+            />
+            </div>
+          </div>
+          <NewsContainer />
+          {searching ? null : <StocksContainer stockSymbol={singleStock.value.symbol} home={this.handleHomeClick} />}
+
+
+
         {searching ? <Footer />: null}
       </div>
     );

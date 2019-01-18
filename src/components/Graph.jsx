@@ -9,17 +9,6 @@ export default class Graph extends Component {
     test:'test'
   }
 
-  // componentDidMount() {
-  //   this.forceUpdate()
-  // }
-  
-  
-
-
-  // static defaultProps = {
-    
-  // }
-
   convertRange = () => {
     let range = this.props.range
     switch(range) {
@@ -43,12 +32,7 @@ export default class Graph extends Component {
   }
 
   render() {
-    // debugger
-    console.log('GRAPH PROPS', this.props)
-    // console.log('GRAPH STATE', this.state)
-    // this.forceUpdate()
-
-    const { chartData, range } = this.props
+    const { chartData } = this.props
     return (
       <div className='chart' >
         <Line

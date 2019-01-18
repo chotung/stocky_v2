@@ -9,14 +9,31 @@ class GraphContainer extends Component {
     chartData: [],
     range: '1d',
     show: false,
+    symbol: this.props.stockSymbol
   }
 
   componentDidMount = () => {
     this.chartData()
   }
-  
+
+  componentDidUpdate = (prevProps, prevState) => {
+    if(this.props.stockSymbol !== prevProps.stockSymbol) {
+      this.chartData()
+    }
+  }
+
+  static getDerivedStateFromProps(props, state) {
+    if(props.stockSymbol !== state.symbol) {
+      return {
+        symbol: props.stockSymbol
+      }
+    }
+    return null
+  }
+
+
   chartData = () => {
-    const symbol = this.props.symbol
+    const symbol = this.state.symbol
     // const symbol = 'AAPL'
     const range = this.state.range
     axios
@@ -25,27 +42,19 @@ class GraphContainer extends Component {
         let quotes = res.data
         let label = []
         let openPrice = []
-         quotes.map(quote => {
-        
-
-          // if range equals 1d
-          // Switch(range) {case 1d: return something}
-           if (range === '1d') {
-             let tempTime = quote.minute.split(':')
-             let combined = tempTime[0] + tempTime[1]
-             // // console.log('combined', combined)
-             let parsed = parseInt(combined)
-             // console.log('parsed', parsed)
-             if (parsed % 5 === 0) {
-               label.push(quote.label)
-               // console.log(label)
-               openPrice.push(quote.open)
-               // console.log(open)
-             }
-           } else {
-             label.push(quote.label)
-             openPrice.push(quote.open)
-           }
+        quotes.forEach(quote => {
+      
+          if (range === '1d') {
+            let tempTime = quote.minute.split(':')
+            if (tempTime[1] * 1 === 30) {
+              console.log(quote);
+              label.push(quote.label)
+              openPrice.push(quote.marketAverage)
+            }
+          } else {
+            label.push(quote.label)
+            openPrice.push(quote.open)
+          }
 
 
         })
@@ -89,8 +98,7 @@ class GraphContainer extends Component {
 
   render () {
     // console.log('Graph Container', this.props)
-    console.log('Graph Container State', this.state)
-
+    // console.log('Graph Container State', this.state)
     const { chartData, range} = this.state
     return (
       <div className='graph'>

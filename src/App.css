@@ -1,28 +1,41 @@
 .App {
-  /* position: relative; */
-  /* position: absolute;
-  text-align: center;
-  top: 50%;
-  left: 50%; */
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: minmax(100px, auto);
+  grid-template-areas: 
+  'top-bar top-bar top-bar top-bar'
+  'one-stock one-stock one-stock one-stock'
+  'news news news news '
+  /* 'footer footer footer footer ' */
 }
 #head {
-  position: absolute;
-  top:25%;
-  left: 40%;
+  float: left;
   text-transform: uppercase;
-  font-size: 3.5em;
+  font-size: 2em;
+  margin: .4em 1em 0 1em;
+  padding: 0%;
 }
-.suggest {
-  position: absolute;
-  top: 40%;
-  left: 9.5%;
-  width: 80%;
+.top-bar {
+  background-color: magenta;
+  grid-area: top-bar;
+  position: fixed;
+  top: 0;
+  width: 90%;
+  padding-right: 100%;
+  padding-bottom: 1.5em;
+
+}
+
+.select-bar {
+  margin: 1em 0 0 1em;
 }
 
 footer {
+  grid-area: footer;
   position: absolute;
   bottom: 0;
-  width: 100%;
+  width: 50%;
   height: auto;
   text-align: center;
   background: grey;
@@ -30,4 +43,8 @@ footer {
   margin-top: 1em;
   font-weight: 900;
   font-size: .69em;
+}
+
+.news {
+  grid-area: news;
 }

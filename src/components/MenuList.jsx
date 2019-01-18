@@ -6,8 +6,8 @@ const height = 35
 export class Menulist extends Component {
   render() {
     const { options, children, maxHeight, getValue } = this.props
-const [value] = getValue()
-const initialOffset = options.indexOf(value) * height
+    const [value] = getValue()
+    const initialOffset = options.indexOf(value) * height
 
     return (
       <List

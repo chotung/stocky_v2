@@ -6,7 +6,7 @@ function StockHeader(props) {
     <div className="stock-head">
       <h1>Company Name: {name}</h1>
       <p>Ticker Symbol: {symbol}</p>
-      <p>Closing Price: {price}$</p>
+      <p>Closing Price: ${price}</p>
       <p>Price Change: {price_change}/{net}</p>
     </div>
   )

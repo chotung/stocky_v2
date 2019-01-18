@@ -1,8 +1,9 @@
 .one-stock {
-  display: grid;
+  grid-area: one-stock;
+  /* display: grid; */
   /* grid-template-rows: 1fr 1fr; */
   box-sizing: border-box;
-  position: relative;
+  /* position: static; */
   font-weight: 500;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   color: black;
@@ -14,16 +15,17 @@
 }
 
 .stock-card {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  /* grid-area: stock-card; */
+  /* display: grid; */
+  /* grid-template-columns: repeat(2, 1fr); */
   border: 1px soild black;
 }
 
-.logo {
+/* .logo { */
   /* margin-right: 1em; */
-  margin: .5em .5em 0 .5em;
+  /* margin: .5em .5em 0 .5em;
   font-family: Arial, Helvetica, sans-serif;
-}
+} */
 
 .stock-card p, li {
   padding: .5em .75em;
