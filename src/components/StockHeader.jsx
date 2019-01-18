@@ -2,12 +2,13 @@ import React from 'react'
 
 function StockHeader(props) {
   const { symbol, name, price, net, price_change } = props
+
   return (
     <div className="stock-head">
-      <h1>Company Name: {name}</h1>
-      <p>Ticker Symbol: {symbol}</p>
-      <p>Closing Price: ${price}</p>
-      <p>Price Change: {price_change}/{net}</p>
+      <p>{name} ({symbol})</p>
+      <h1>${price} </h1>
+      <p className='price'>{price_change} ({(net * 100).toFixed(2)})%</p>
+
     </div>
   )
 }

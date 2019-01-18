@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import News from '../components/News'
+import '../styles/newsContainer.css'
+// import '../styles/stockContainer.css'
 
 export default class NewsContainer extends Component {
   render() {
@@ -9,4 +11,4 @@ export default class NewsContainer extends Component {
       </div>
     )
   }
-}
+} 

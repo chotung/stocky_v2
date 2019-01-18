@@ -1,40 +1,70 @@
 .one-stock {
   grid-area: one-stock;
-  /* display: grid; */
-  /* grid-template-rows: 1fr 1fr; */
+  display: grid;
+  grid-template-rows: 100px 1fr 500px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: 
+  'stockhead stockhead'
+  'info chart'
+  'news news';
+  grid-gap: 20px;
   box-sizing: border-box;
-  /* position: static; */
   font-weight: 500;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   color: black;
-}
-
-.one-stock h1 {
-  text-decoration-line: underline;
-  font-weight: 400;
-}
-
-.stock-card {
-  /* grid-area: stock-card; */
-  /* display: grid; */
-  /* grid-template-columns: repeat(2, 1fr); */
-  border: 1px soild black;
-}
-
-/* .logo { */
-  /* margin-right: 1em; */
-  /* margin: .5em .5em 0 .5em;
   font-family: Arial, Helvetica, sans-serif;
-} */
+  min-width: 1007px;
+  max-width: 1260px;
+  margin: auto;
+}
 
 .stock-card p, li {
   padding: .5em .75em;
   
 }
+.stock-head {
+  padding: 1px;
+  grid-area: stockhead;
+  border-top: 10px solid grey;
+}
+
+.stock-head-bullish {
+  grid-area: stockhead;
+  background: green;
+}
+
+
+.stock-head-bearish {
+  grid-area: stockhead;
+  background: red;
+}
+
+.stock-head h1 {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 2.5em;
+  font-weight: bold;
+  display: inline-block;
+
+}
 
 .stock-head p {
-  /* background-color: pink; */
+  padding: 10px;
+  font-weight: bold;
+}
+
+.stock-head p {
   margin: 0;
+}
+
+.stock-details {
+  grid-area: info;
+  border: 1px solid black;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.stock-details h1 {
+  font-size: 1em;
 }
 
 
@@ -42,11 +72,25 @@
   padding: 0;
   margin: 0;
   margin-top: 1em;
+  
 }
 
 .stock-details li {
   /* background-color: pink; */
   list-style: none;
+  margin: 0em 1em ;
+  /* width: 100%;  */
+  border-bottom: .75px solid lightgrey;
 }
 
+.price {
+  display: inline-block;
 
+}
+
+/* .news {
+  min-width: 1007px;
+  max-width: 1260px;
+  margin: auto;
+} */
+ 

@@ -5,6 +5,7 @@ import StockDetails from '../components/StockDetails'
 import axios from 'axios'
 import HomeLogo from '../components/HomeLogo'
 import '../styles/stockContainer.css'
+import NewsContainer from './NewsContainer';
 
 class StocksContainer extends Component {
   
@@ -63,10 +64,6 @@ class StocksContainer extends Component {
     return (
       <div className="one-stock">
           {/* <HomeLogo home={this.props.home} /> */}
-
-        <GraphContainer stockSymbol={symbol} />
-
-        <div className='stock-card'>
           <StockHeader
             symbol={symbol}
             name={companyName}
@@ -74,8 +71,13 @@ class StocksContainer extends Component {
             net={changePercent}
             price_change={change}
           />
+
+        {/* <div className='stock-card'> */}
           <StockDetails stock={data} />
-        </div>
+          <GraphContainer stockSymbol={symbol} />
+          <NewsContainer />
+        {/* </div> */}
+
       </div>
     )
   }

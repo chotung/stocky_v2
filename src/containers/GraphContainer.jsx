@@ -74,12 +74,12 @@ class GraphContainer extends Component {
         //  These labels need to be minutes
         datasets: [
           {
-            fill: false,
+            fill: true,
             // data: [150, 134, 144],
             data: open,
             // Data points are stock high prices
             backgroundColor: [
-              'pink'
+              'orange'
             ],
             borderColor: ['blue']
           }
