@@ -1,16 +1,17 @@
-import React from 'react'
+import React, { Component} from 'react'
 
-export default function GraphHeader(props) {
-  return (
-    <div className="graph-buttons">
-      <h2 onClick={props.range} >1d</h2>
-      <h2 onClick={props.range}>5d</h2>
-      <h2 onClick={props.range}>1m</h2>
-      <h2 onClick={props.range}>6m</h2>
-      <h2 onClick={props.range}>YTD</h2>
-      <h2 onClick={props.range}>1y</h2>
-      <h2 onClick={props.range}>5y</h2>
-      {/* <h2 onClick={props.range}>Max</h2> */}
-    </div>
-  )
+export default class GraphHeader extends Component{
+  render() {
+    const { range } = this.props
+    return <div className="graph-buttons">
+      <button className='' onClick={range}>1d</button>
+      <button className='' onClick={range}>5d</button>
+      <button className='' onClick={range}>1m</button>
+      <button className='' onClick={range}>6m</button>
+      <button className='' onClick={range}>YTD</button>
+      <button className='' onClick={range}>1y</button>
+      <button className='' onClick={range}>5y</button>
+      {/* <h2 onClick={this.props.range}>Max</h2> */}
+    </div>;
+  }
 }

@@ -2,8 +2,12 @@
   min-width: 1007px;
   max-width: 1260px;
   margin: auto;
-  /* background: black; */
   margin-top: 1em 0;
   text-align: justify;
   height: 100%;
+  border-top: 1px solid grey;
+}
+
+.news-obj {
+  
 }

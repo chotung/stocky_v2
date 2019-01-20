@@ -1,32 +1,25 @@
 .graph {
-  /* grid-area: graph; */
-  /* background-color: orange; */
-  /* height: 100vh; */
-  border: 1px solid black;
+  background: rgb(36, 36, 36);
 
 }
 
 
 .graph-buttons {
   display: grid;
-  /* position: absolute; */
   grid-template-columns: repeat(7, 1fr);
-  /* border: 1px solid black;
-  border-radius: 12px; */
+  grid-gap: 10px;
   width: 95%;
   height: 2em;
-  margin: 0em 1em 1em 1em;
-  /* margin-left: 1%; */
+  margin: 1em;
   padding-bottom: 1em;
 }
 
-.graph-buttons h2 {
+.graph-buttons button {
+  border: none;
   text-align: center;
   color: rgba(255, 255, 255, 0.603);
-  background-color: rgb(101, 102, 163);
-  border: 1px solid black;
+  background: rgb(36, 36, 36);
   border-radius: 6px;
-  /* width: 50%; */
   padding: .5em 0 .5em 0;
   font-size: 1em;
 }
@@ -35,14 +28,12 @@
   width: 95%;
   margin-top: 1em;
   margin-left: 1em;
-
-  /* position: absolute; */
-  /* margin: 2em; */
-  /* position: absolute;
-  top: 30%;
-  width: 100%; */
 }
 
-.graph-buttons h2:hover {
-  background-color: rgba(101, 102, 163, 0.603);
+button:hover{
+  background: skyblue;
+  /* background-color: rgba(101, 102, 163, 0.603); */
 }
+
+
+

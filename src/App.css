@@ -8,28 +8,38 @@
   'one-stock one-stock one-stock one-stock'
   'news news news news '
   'footer footer footer footer ';
-  position: relative;
+ 
 }
-#head {
-  float: left;
-  text-transform: uppercase;
-  font-size: 2em;
-  margin: .4em 1em 0 1em;
-  padding: 0%;
-}
-.top-bar {
-  background-image: linear-gradient(white, blue);
-  grid-area: top-bar;
-  position: fixed;
-  top: 0;
-  width: 90%;
-  padding-right: 100%;
-  padding-bottom: 1.5em;
 
+.top-bar {
+  max-width: 1260px;
+  min-width: 1006px;
+  margin: auto;
+  grid-area: top-bar;
+  top: 0;
+  width: 100%;
+  /* padding-right: 100%; */
+  padding-bottom: 1.5em;
+  /* margin-left: 19.5em; */
+  text-align: center;
+  /* background-image: url('https://www.gannett-cdn.com/-mm-/403ef77445f4b28964c33232ce35da47f3525530/c=0-32-580-358&r=x803&c=1600x800/local/-/media/2017/07/24/USATODAY/usatsports/getty-stock-market-prices_large.jpg') */
+  background: slategray;
+  border-radius: 5px;
+  
 }
+
+#head {
+  text-transform: uppercase;
+  margin: 1em 1em 0 1em;
+  padding: 0%;
+  display: inline-block;
+}
+
 
 .select-bar {
-  margin: 1em 0 0 1em;
+  display: inline-block;
+  margin: 1em 1em 0 1em;
+  width: 30%;
 }
 
 footer {

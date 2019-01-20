@@ -3,7 +3,7 @@ import GraphContainer from './GraphContainer'
 import StockHeader from '../components/StockHeader'
 import StockDetails from '../components/StockDetails'
 import axios from 'axios'
-import HomeLogo from '../components/HomeLogo'
+// import HomeLogo from '../components/HomeLogo'
 import '../styles/stockContainer.css'
 import NewsContainer from './NewsContainer';
 
@@ -56,11 +56,11 @@ class StocksContainer extends Component {
   render () {
     // debugger
     // console.log('socks container', this.state)
-    const { companyName, close, changePercent, change } = this.state.data
+    const { companyName, close, changePercent, change, } = this.state.data
     const { data, symbol } = this.state
     // const { symbol } = this.props.stock.value
 
-    console.log('the ticker symbol is : ', symbol)
+    // console.log('the ticker symbol is : ', symbol)
     return (
       <div className="one-stock">
           {/* <HomeLogo home={this.props.home} /> */}
@@ -75,7 +75,7 @@ class StocksContainer extends Component {
         {/* <div className='stock-card'> */}
           <StockDetails stock={data} />
           <GraphContainer stockSymbol={symbol} />
-          <NewsContainer />
+          <NewsContainer news={this.props.news} />
         {/* </div> */}
 
       </div>

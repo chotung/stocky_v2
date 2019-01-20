@@ -9,7 +9,10 @@ class GraphContainer extends Component {
     chartData: [],
     range: '1d',
     show: false,
-    symbol: this.props.stockSymbol
+    symbol: this.props.stockSymbol,
+    isClicked: {
+      '1d': false,
+    }
   }
 
   componentDidMount = () => {
@@ -47,7 +50,7 @@ class GraphContainer extends Component {
           if (range === '1d') {
             let tempTime = quote.minute.split(':')
             if (tempTime[1] * 1 === 30) {
-              console.log(quote);
+              // console.log(quote);
               label.push(quote.label)
               openPrice.push(quote.marketAverage)
             }
@@ -78,33 +81,43 @@ class GraphContainer extends Component {
             // data: [150, 134, 144],
             data: open,
             // Data points are stock high prices
-            backgroundColor: [
-              'orange'
-            ],
-            borderColor: ['blue']
+            backgroundColor: ["rgb(43, 102, 137)"],
+            borderColor: ["rgb(79, 193, 233)"]
           }
         ]
       },
       show: true
-    })
+    });
   }
 
   swapRange = (e) => { 
-    console.log(e.target.innerText)
+    // console.log(e.target.innerText)
+    let dick = e.target.innerText
+
     this.setState({ range: e.target.innerText},
       () => this.chartData()) 
     // console.log('Range state', this.state.range)
+    this.setState(prevState => ({
+      isClicked : {
+        '1d': 'penis'
+      }
+    }));
   }
 
+  // btn class = btn
+  // if (this.state.isPressed) btnclass += btn-press
+  // else if (this.state.ishovered) btnclass += btn-over
+    // return button className={btnclass}>1d</button>
+
   render () {
-    // console.log('Graph Container', this.props)
-    // console.log('Graph Container State', this.state)
-    const { chartData, range} = this.state
+    const { chartData, range } = this.state
+    console.log(this.state.isClicked['1d'])
     return (
       <div className='graph'>
 
         <GraphHeader
           range={(e) => this.swapRange(e)}
+          clicked={(e)=>this.test(e)}
         />
         {this.state.show === false ? null : (
           <Graph chartData={chartData} range={range} />

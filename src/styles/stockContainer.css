@@ -24,7 +24,7 @@
 .stock-head {
   padding: 1px;
   grid-area: stockhead;
-  border-top: 10px solid grey;
+  border-left: 10px solid grey;
 }
 
 .stock-head-bullish {
@@ -58,7 +58,9 @@
 
 .stock-details {
   grid-area: info;
-  border: 1px solid black;
+  color: wheat;
+  font-weight: 660;
+  background: rgb(36, 36, 36);
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
