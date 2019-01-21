@@ -3,8 +3,8 @@ import React from 'react'
 function StockDetails(props) {
   const { open, high, low, marketCap, peRatio, previousClose, week52High, week52Low } = props.stock;
   // console.log(props)
-  return <div className="stock-details">
-      <ul className="details-1" >
+  return <div className="uk-flex uk-padding-remove uk-margin-remove uk-width-1-2 uk-flex-middle stock-details">
+      <ul className="uk-width-1-2 uk-margin-remove details-1">
         <li>Open: ${open}</li>
         <li>High: ${high}</li>
         <li>Low: ${low}</li>
@@ -14,7 +14,7 @@ function StockDetails(props) {
         <li>52 Week High: ${week52High}</li>
         <li>52 Week Low: ${week52Low}</li>
       </ul>
-      <ul className='details-2' >
+      <ul className="uk-width-1-2 uk-margin-remove details-2">
         <li>Open: ${open}</li>
         <li>High: ${high}</li>
         <li>Low: ${low}</li>

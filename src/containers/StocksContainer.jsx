@@ -13,7 +13,7 @@ class StocksContainer extends Component {
     super(props)
     this.state = {
       data: [],
-      symbol: props.stockSymbol
+      symbol: props.stockSymbol,
     }
     this.getQuote()
   }
@@ -54,30 +54,23 @@ class StocksContainer extends Component {
 
 
   render () {
-    // debugger
-    // console.log('socks container', this.state)
     const { companyName, close, changePercent, change, } = this.state.data
     const { data, symbol } = this.state
-    // const { symbol } = this.props.stock.value
-
-    // console.log('the ticker symbol is : ', symbol)
     return (
-      <div className="one-stock">
-          {/* <HomeLogo home={this.props.home} /> */}
-          <StockHeader
-            symbol={symbol}
-            name={companyName}
-            price={close}
-            net={changePercent}
-            price_change={change}
-          />
+      <div className=" one-stock">
+        <div className='uk-grid uk-padding-remove stock-info'>
+            <StockHeader
+              symbol={symbol}
+              name={companyName}
+              price={close}
+              net={changePercent}
+              price_change={change}
+            />
+            <StockDetails stock={data} />
+            <GraphContainer stockSymbol={symbol} />
+          </div>
 
-        {/* <div className='stock-card'> */}
-          <StockDetails stock={data} />
-          <GraphContainer stockSymbol={symbol} />
           <NewsContainer news={this.props.news} />
-        {/* </div> */}
-
       </div>
     )
   }

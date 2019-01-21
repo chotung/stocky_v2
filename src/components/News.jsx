@@ -2,14 +2,13 @@ import React from 'react'
 
 
 export default function News(props) {
-  console.log(props);
-  const { datetime, headline, url, summary, related, image} = props.article
+  const {  headline, url, summary, } = props.article
 
   return (
-    <article className='uk-article' >
+    <article className='uk-padding-remove uk-article' >
       <h1 className="uk-article-title">{headline}</h1>
-      <p>{summary}</p>
-      <a href={url} target='_blank'>{url}</a>
+      <p className='uk-article-meta'>{summary}</p>
+      <a className='uk-link-text' href={url} target='_blank' rel="noopener noreferrer" >{url}</a>
     </article>
   )
 }

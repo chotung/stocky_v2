@@ -7,12 +7,20 @@ import '../styles/graphContainer.css'
 class GraphContainer extends Component {
   state = {
     chartData: [],
-    range: '1d',
+    timeFrame: [
+      {name:'1d'},
+      {name:'5d'}, 
+      {name:'1m'}, 
+      {name:'6m'}, 
+      {name:'YTD'}, 
+      {name:'1Y'}, 
+      {name:'5Y'}
+    ],
     show: false,
     symbol: this.props.stockSymbol,
-    isClicked: {
-      '1d': false,
-    }
+    activeIndex: null,
+    range: '1d',
+
   }
 
   componentDidMount = () => {
@@ -90,35 +98,75 @@ class GraphContainer extends Component {
     });
   }
 
-  swapRange = (e) => { 
-    // console.log(e.target.innerText)
-    let dick = e.target.innerText
 
-    this.setState({ range: e.target.innerText},
-      () => this.chartData()) 
-    // console.log('Range state', this.state.range)
-    this.setState(prevState => ({
-      isClicked : {
-        '1d': 'penis'
+  handleClick = (index, e) => {
+    this.setState({ activeIndex: index },
+    () => {
+      switch (this.state.activeIndex) {
+        case 0:
+          this.setState({ range: '1d' },
+            () => this.chartData())
+          break;
+        case 1:
+          this.setState({ range: '5d' },
+            () => this.chartData())
+            break;
+        case 2:
+          this.setState({ range: '1m' },
+            () => this.chartData())
+          break;
+        case 3:
+          this.setState({ range: '6m' },
+            () => this.chartData())
+            break;
+        case 4:
+          this.setState({ range: 'YTD' },
+            () => this.chartData())
+            break;
+        case 5:
+          this.setState({ range: '1y' },
+            () => this.chartData())
+            break;
+        case 6:
+          this.setState({ range: '5y' },
+            () => this.chartData())
+          break;
+        default:
+          break;
       }
-    }));
+    })
+    
   }
 
-  // btn class = btn
-  // if (this.state.isPressed) btnclass += btn-press
-  // else if (this.state.ishovered) btnclass += btn-over
-    // return button className={btnclass}>1d</button>
-
-  render () {
-    const { chartData, range } = this.state
-    console.log(this.state.isClicked['1d'])
-    return (
-      <div className='graph'>
-
-        <GraphHeader
-          range={(e) => this.swapRange(e)}
-          clicked={(e)=>this.test(e)}
+   timeButtons = () => {
+    return this.state.timeFrame.map((click, i ) => {
+      // console.log(click);
+      return <GraphHeader 
+        key={click.name}
+        name={click.name}
+        index={ i }
+        isActive={ this.state.activeIndex === i}
+        onClick={ this.handleClick } 
+        // range={ e => this.swapRange(e)}
         />
+    })
+   }
+
+  
+
+ 
+  render () {
+    const { chartData, range,  } = this.state
+    // let classes = classnames( {active: this.state.active} )
+    console.log( this.state )
+    return (
+      <div className='uk-width-1-2 uk-height-1-2 graph'>
+       <div className='uk-margin-left btn-group' >
+        {this.timeButtons()}
+       </div>
+
+
+        {/* {this.renderButton()} */}
         {this.state.show === false ? null : (
           <Graph chartData={chartData} range={range} />
         )}

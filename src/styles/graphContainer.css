@@ -1,4 +1,4 @@
-.graph {
+/* .graph {
   background: rgb(36, 36, 36);
 
 }
@@ -24,6 +24,10 @@
   font-size: 1em;
 }
 
+.graph-buttons .active {
+  background: red;
+}
+
 .chart {
   width: 95%;
   margin-top: 1em;
@@ -32,8 +36,8 @@
 
 button:hover{
   background: skyblue;
-  /* background-color: rgba(101, 102, 163, 0.603); */
+} */
+
+.btn-group {
+  width: 100%;
 }
-
-
-

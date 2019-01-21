@@ -1,4 +1,4 @@
-.App {
+/* .App {
   display: grid;
   grid-gap: 20px;
   grid-template-columns: repeat(4, 1fr);
@@ -11,51 +11,27 @@
  
 }
 
+.news {
+  grid-area: news;
+} */
+
+
+
 .top-bar {
   max-width: 1260px;
   min-width: 1006px;
   margin: auto;
-  grid-area: top-bar;
-  top: 0;
-  width: 100%;
-  /* padding-right: 100%; */
-  padding-bottom: 1.5em;
-  /* margin-left: 19.5em; */
   text-align: center;
-  /* background-image: url('https://www.gannett-cdn.com/-mm-/403ef77445f4b28964c33232ce35da47f3525530/c=0-32-580-358&r=x803&c=1600x800/local/-/media/2017/07/24/USATODAY/usatsports/getty-stock-market-prices_large.jpg') */
-  background: slategray;
+  background: rgb(224, 219, 219);
+  padding: 1em;
   border-radius: 5px;
-  
 }
 
 #head {
+  font-family: Arial, Helvetica, sans-serif;
   text-transform: uppercase;
-  margin: 1em 1em 0 1em;
+  margin: 0;
   padding: 0%;
-  display: inline-block;
-}
-
-
-.select-bar {
-  display: inline-block;
-  margin: 1em 1em 0 1em;
-  width: 30%;
-}
-
-footer {
-  grid-area: footer;
-  position: absolute;
-  bottom: 0%;
-  width: 100%;
-  height: auto;
-  text-align: center;
-  background: grey;
-  padding: 1em 0;
-  margin-top: 1em;
-  font-weight: 900;
-  font-size: .69em;
-}
-
-.news {
-  grid-area: news;
+  font-size: 2em;
+  font-weight: bold;
 }

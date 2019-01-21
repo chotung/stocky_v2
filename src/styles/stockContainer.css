@@ -1,4 +1,4 @@
-.one-stock {
+/* .one-stock {
   grid-area: one-stock;
   display: grid;
   grid-template-rows: 100px 1fr 500px;
@@ -15,8 +15,8 @@
   min-width: 1007px;
   max-width: 1260px;
   margin: auto;
-}
-
+} */
+/* 
 .stock-card p, li {
   padding: .5em .75em;
   
@@ -78,17 +78,15 @@
 }
 
 .stock-details li {
-  /* background-color: pink; */
   list-style: none;
   margin: 0em 1em ;
-  /* width: 100%;  */
   border-bottom: .75px solid lightgrey;
 }
 
 .price {
   display: inline-block;
 
-}
+} */
 
 /* .news {
   min-width: 1007px;
@@ -96,3 +94,74 @@
   margin: auto;
 } */
  
+
+.one-stock, .stock-info {
+  min-width: 1007px;
+  max-width: 1260px;
+  margin: auto;
+  padding: 0;
+}
+
+.stock-info {
+  background: rgb(251, 253, 253);
+}
+
+.stock-head {
+  padding: .5em;
+  grid-area: stockhead;
+  border-left: 10px solid grey;
+  color: black;
+}
+
+
+.stock-head-bullish {
+  grid-area: stockhead;
+  background: green;
+}
+
+
+.stock-head-bearish {
+  grid-area: stockhead;
+  background: red;
+}
+
+.stock-head h1 {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 2.5em;
+  font-weight: bold;
+  display: inline-block;
+
+}
+
+.stock-head p {
+  padding: 10px;
+  font-weight: bold;
+}
+
+.stock-head p {
+  margin: 0;
+}
+
+.stock-details {
+  font-size: 1.3em;
+}
+
+.stock-details li {
+  list-style: none;
+  padding: 0;
+  border-bottom: .75px solid lightgrey;
+  width: 90%;
+  font-weight: 600;
+  color: black;
+}
+
+.stock-details ul{
+  padding: 0;
+  margin: 0;
+  margin-top: 1em; 
+}
+
+.stock-details h1 {
+  font-size: 1em;
+}
