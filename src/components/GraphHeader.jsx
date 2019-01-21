@@ -7,7 +7,6 @@ export default class GraphHeader extends Component{
   }
 
   render() {
-    console.log(this.props);
     return <div className="uk-flex-inline graph-buttons">
     
     <button

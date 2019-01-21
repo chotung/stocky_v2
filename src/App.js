@@ -84,7 +84,7 @@ class App extends Component {
     const { selectedOption, searching, singleStock, stocks, news } = this.state;
     return (
       <div className="uk-grid">
-        <div className="uk-flex-center uk-flex-inline uk-width-1-1 top-bar">
+        <div className="uk-flex-center uk-margin-small-bottom uk-flex-inline uk-width-1-1 top-bar">
           <div className=" uk-width-1-1 select-bar">
             <Select
               placeholder="Ticker Symbol/Company"

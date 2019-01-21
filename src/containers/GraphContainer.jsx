@@ -18,8 +18,8 @@ class GraphContainer extends Component {
     ],
     show: false,
     symbol: this.props.stockSymbol,
-    activeIndex: null,
-    range: '1d',
+    activeIndex: 1,
+    range: '5d',
 
   }
 
@@ -66,10 +66,7 @@ class GraphContainer extends Component {
             label.push(quote.label)
             openPrice.push(quote.open)
           }
-
-
         })
-
         this.setGraph(label, openPrice)
 
 
@@ -89,6 +86,8 @@ class GraphContainer extends Component {
             // data: [150, 134, 144],
             data: open,
             // Data points are stock high prices
+            // backgroundColor: backColor, 
+            // borderColor: backColor
             backgroundColor: ["rgb(43, 102, 137)"],
             borderColor: ["rgb(79, 193, 233)"]
           }
@@ -96,6 +95,7 @@ class GraphContainer extends Component {
       },
       show: true
     });
+
   }
 
 
@@ -158,10 +158,9 @@ class GraphContainer extends Component {
   render () {
     const { chartData, range,  } = this.state
     // let classes = classnames( {active: this.state.active} )
-    console.log( this.state )
     return (
       <div className='uk-width-1-2 uk-height-1-2 graph'>
-       <div className='uk-margin-left btn-group' >
+       <div className='uk-margin-left` btn-group' >
         {this.timeButtons()}
        </div>
 
