@@ -18,13 +18,13 @@
 
 
 .top-bar {
-  max-width: 1260px;
+  /* max-width: 1260px;
   min-width: 1006px;
-  margin: auto;
+  width: 100%;
+  margin: auto; */
   text-align: center;
-  background:rgb(51, 67, 94);
+  background:rgb(51, 51, 51);
   padding: 1em;
-  border-radius: 5px;
   box-shadow: 1px 1px grey;
 }
 

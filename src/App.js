@@ -85,7 +85,10 @@ class App extends Component {
     return (
       <div className="uk-grid">
         <div className="uk-flex-center uk-margin-small-bottom uk-flex-inline uk-width-1-1 top-bar">
-          <div className=" uk-width-1-1 select-bar">
+          <h1 id="head" className='uk-margin-large-left uk-padding-small uk-heading-primary uk-width-1-6' onClick={this.goHome}>
+            Stocky
+          </h1>
+          <div className="uk-margin-xlarge-right uk-width-1-1 select-bar">
             <Select
               placeholder="Ticker Symbol/Company"
               value={selectedOption}
@@ -94,9 +97,7 @@ class App extends Component {
               components={{ MenuList }}
             />
           </div>
-          <h1 id="head" className='uk-heading-primary uk-width-1-6' onClick={this.goHome}>
-            Stocky
-          </h1>
+          
         </div>
         {searching ? <NewsContainer news={news} className='' /> : null}
         {searching ? null : (

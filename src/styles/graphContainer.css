@@ -45,5 +45,6 @@ button:hover{
 
 #g-btn {
   border-radius: 10px;
-  margin: 1em 1px 0 1px;
+  margin: 1.2em 1px 0 1px;
+  /* border-bottom: 1px solid black; */
 }
