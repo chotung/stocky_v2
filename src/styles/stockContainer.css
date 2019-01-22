@@ -54,15 +54,16 @@
 }
 
 .stock-details {
-  font-size: 1.4em;
+  font-size: 1em;
+
 }
 
 .stock-details li {
   list-style: none;
-  padding: 0;
+  padding: .9em;
   border-bottom: .75px solid lightgrey;
-  width: 90%;
-  font-weight: 600;
+  width: 80%;
+  /* font-weight: 600; */
   color: black;
   padding-bottom: 1px;
 }

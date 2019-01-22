@@ -99,7 +99,7 @@ class App extends Component {
           </div>
           
         </div>
-        {searching ? <NewsContainer news={news} className='' /> : null}
+        {/* {searching ? <NewsContainer news={news} className='' /> : null} */}
         {searching ? null : (
           <StocksContainer
             stockSymbol={singleStock.value.symbol}

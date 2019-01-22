@@ -2,7 +2,7 @@ import React from 'react'
 
 function StockHeader(props) {
   const { symbol, name, price, net, price_change } = props
-  console.log(net)
+  // console.log(net)
   return (
     <div className={"uk-width-1-1 uk-margin-small-top stock-head" + (net < 0 ? '-bearish' : '-bullish') }>
       <p className='uk-margin-small-top company-name'>{name} ({symbol})</p>
