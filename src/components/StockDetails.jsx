@@ -46,7 +46,7 @@ function StockDetails(props) {
         <li>Beta: {beta ? beta.toFixed(2) : 'N/A'}</li>
         <li>P/E Ratio: {peRatio ? peRatio: 'N/A'}</li>
         <li>EPS(TTM): {ttmEPS ? ttmEPS.toFixed(2) : 'N/A'}</li>
-        <li>Forward Dividend &amp; Yield: {dividendRate ? dividendRate : 'N/A'} {dividendYield ? (dividendYield.toFixed(2)) : ''} </li>
+        <li>Forward Div &amp; Yield: {dividendRate ? dividendRate : 'N/A'} {dividendYield ? `(${dividendYield.toFixed(2)})` : ''} </li>
         <li>Ex-Dividend Date: {exDividendDate ? removeHMS(exDividendDate): 'N/A'} </li>
       </ul>
     </div>;
