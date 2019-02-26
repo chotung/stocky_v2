@@ -38,13 +38,13 @@ class App extends Component {
   //   .then(data => console.log(data))
   // }
 
-  getNews = () => {
-    axios
-      .get("https://api.iextrading.com/1.0//stock/market/news/last/5")
-      .then(news => {
-        this.setState({ news: news.data });
-      });
-  };
+  // getNews = () => {
+  //   axios
+  //     .get("https://api.iextrading.com/1.0//stock/market/news/last/5")
+  //     .then(news => {
+  //       this.setState({ news: news.data });
+  //     });
+  // };
 
   fetchData = () => {
     axios.get(url).then(companies => {
