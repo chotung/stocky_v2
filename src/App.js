@@ -4,7 +4,7 @@ import axios from "axios";
 import StocksContainer from "./containers/StocksContainer";
 import Select from "react-select";
 import MenuList from "./components/MenuList";
-import NewsContainer from "./containers/NewsContainer";
+// import NewsContainer from "./containers/NewsContainer";
 import "uikit";
 
 const url = "https://api.iextrading.com/1.0/ref-data/symbols";
@@ -21,22 +21,10 @@ class App extends Component {
 
   componentDidMount() {
     this.fetchData();
-
-    // this.fetchNewsXML()
     this.getNews();
   }
 
-  //  XML fetch yahoo news
 
-  // fetchNewsXML = () => {
-  //   fetch("https://feeds.finance.yahoo.com/rss/2.0/headline?s=aapl&region=US&lang=en-US"
-  //   // {
-  //   //   method: "GET",
-  //   //   headers: { "Content-Type": "application/text"}
-  //   )
-  //   .then(res => res.text())
-  //   .then(data => console.log(data))
-  // }
 
   // getNews = () => {
   //   axios
@@ -49,13 +37,11 @@ class App extends Component {
   fetchData = () => {
     axios.get(url).then(companies => {
       companies.data.map(comp => {
-        // console.log(comp.symbol, comp.name)
         return options.push({
           value: comp,
           label: comp.symbol + "/" + comp.name
         });
       });
-      // console.log(options)
       this.setState({
         stocks: options
       });
@@ -64,7 +50,6 @@ class App extends Component {
 
   handleChange = selectedOption => {
     this.setState({ selectedOption });
-    // console.log(`Option selected:`, selectedOption)
     this.setState({
       singleStock: selectedOption,
       searching: false
@@ -83,12 +68,17 @@ class App extends Component {
   render() {
     const { selectedOption, searching, singleStock, stocks, news } = this.state;
     return (
-      <div className="uk-grid">
-        <div className="uk-flex-center uk-margin-small-bottom uk-flex-inline uk-width-1-1 top-bar">
-          <h1 id="head" className='uk-margin-large-left uk-padding-small uk-heading-primary uk-width-1-6' onClick={this.goHome}>
+      <div className="">
+        <div className="uk-grid top-bar">
+          <h1
+            id="head"
+            className="uk-width-1-2 uk-width-small-1"
+            onClick={this.goHome}
+          >
             Stocky
           </h1>
-          <div className="uk-margin-xlarge-right uk-width-1-1 select-bar">
+
+          <div className="uk-width-1-2 uk-width-small-1 select-bar">
             <Select
               placeholder="Ticker Symbol/Company"
               value={selectedOption}
@@ -97,9 +87,8 @@ class App extends Component {
               components={{ MenuList }}
             />
           </div>
-          
         </div>
-        {/* {searching ? <NewsContainer news={news} className='' /> : null} */}
+
         {searching ? null : (
           <StocksContainer
             stockSymbol={singleStock.value.symbol}
