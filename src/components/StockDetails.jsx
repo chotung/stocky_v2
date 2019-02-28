@@ -27,11 +27,10 @@ function week52Range(low52, high52) {
 
 function StockDetails(props) {
   const { open, high, low, marketCap, peRatio, previousClose, week52High, week52Low, iexBidPrice, iexAskPrice, iexVolume, avgTotalVolume } = props.stock;
-  // console.log(props)
   const { beta, ttmEPS, dividendYield, dividendRate, exDividendDate} = props.addData
 
   return <div className="uk-flex uk-padding-remove uk-margin-remove uk-padding-small-top uk-width-1-2 uk-flex-top stock-details">
-      <ul className="uk-width-1-2 details-1">
+      <ul className="uk-width-1-2*@s details-1">
         <li>Prev Close: {previousClose ? previousClose : 'N/A'}</li>
         <li>Open: {open ? open : 'N/A'}</li>
         <li>Bid Price: {iexBidPrice ? iexBidPrice : 'N/A'}</li>
@@ -40,7 +39,7 @@ function StockDetails(props) {
         {week52Range(week52Low, week52High)}
         <li>Volume: {iexVolume ? iexVolume : 'N/A'}</li>
       </ul>
-      <ul className="uk-width-1-2 details-2">
+    <ul className="uk-width-1-2*@s details-2">
         <li>Avg Volume: {avgTotalVolume ? avgTotalVolume : 'N/A'}</li>
         <li>MKT CAP: {marketCap ? (marketCap / Math.pow(10, 9)).toFixed(2): 'N/A'} B</li>
         <li>Beta: {beta ? beta.toFixed(2) : 'N/A'}</li>

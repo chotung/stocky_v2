@@ -159,7 +159,7 @@ class GraphContainer extends Component {
     const { chartData, range,  } = this.state
     // let classes = classnames( {active: this.state.active} )
     return (
-      <div className='uk-width-1-2 uk-height-1-2 graph'>
+      <div className='uk-width-1-2@m uk-height-1-2@m graph'>
        <div className='uk-margin-left` btn-group' >
         {this.timeButtons()}
        </div>

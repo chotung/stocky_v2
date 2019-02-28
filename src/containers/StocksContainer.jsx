@@ -70,8 +70,8 @@ class StocksContainer extends Component {
     const { data, symbol, addData } = this.state
     console.log(this.state.addData)
     return (
-      <div className=" one-stock">
-        <div className='uk-grid uk-padding-remove stock-info'>
+      <div className="one-stock">
+        <div className='uk-grid  uk-grid-width-1-2 uk-grid-width-medium-1-3 uk-grid-width-large-1-6 uk-padding-remove stock-info'>
             <StockHeader
               symbol={symbol}
               name={companyName}
@@ -83,8 +83,6 @@ class StocksContainer extends Component {
             <StockDetails stock={data} addData={addData} />
             <GraphContainer stockSymbol={symbol} />
           </div>
-
-          {/* <NewsContainer news={this.props.news} /> */}
       </div>
     )
   }
