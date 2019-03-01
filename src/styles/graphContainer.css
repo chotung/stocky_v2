@@ -17,7 +17,15 @@
 }
 
 .select {
-  display: none
+  display: none;
+  margin: 10px 5px;
+  border-radius: 5px;
+  background-color: rgb(55,55,55);
+  color: white;
+  padding: 10px;
+  font-weight: bold;
+  outline: none;
+
 }
 
 @media (max-width: 960px) {
