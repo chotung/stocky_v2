@@ -21,7 +21,7 @@ class App extends Component {
 
   componentDidMount() {
     this.fetchData();
-    this.getNews();
+    // this.getNews();
   }
 
 
@@ -68,17 +68,18 @@ class App extends Component {
   render() {
     const { selectedOption, searching, singleStock, stocks, news } = this.state;
     return (
-      <div className="">
-        <div className="uk-grid top-bar">
+      <div className="app">
+        <div className="uk-child-width-1-2@l  uk-child-width-1-1@m uk-grid-match uk-grid uk-grid-stack top-bar">
           <h1
             id="head"
-            className="uk-width-1-2 uk-width-small-1"
+            // className="uk-width-1-2 uk-width-small-1"
+            className="uk-margin-medium-left uk-align-center uk-width-1-4@l"
             onClick={this.goHome}
           >
-            Stocky
+           Binder Finance
           </h1>
 
-          <div className="uk-width-1-2 uk-width-small-1 select-bar">
+          <div className="select-bar">
             <Select
               placeholder="Ticker Symbol/Company"
               value={selectedOption}

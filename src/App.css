@@ -2,6 +2,7 @@
 .top-bar {
   text-align: center;
   background:rgb(51, 51, 51);
+  /* background: #f8de7e; */
   padding: 1em;
   box-shadow: 1px 1px grey;
 }
