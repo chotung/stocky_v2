@@ -187,7 +187,7 @@ class GraphContainer extends Component {
 
 
       {/* Else Render dropdown mobile */}
-      <select value={this.state.range} onChange={this.pp}>
+      <select className='select'value={this.state.range} onChange={this.pp}>
         {/* {this.dropdown()} */}
         <option value="1d" >1D</option>        
         <option value="5d" >5D</option>

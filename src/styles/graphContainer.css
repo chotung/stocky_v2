@@ -15,3 +15,12 @@
   margin: 1.2em 1px 0 1px;
   /* border-bottom: 1px solid black; */
 }
+
+.select {
+  display: none
+}
+
+@media (max-width: 960px) {
+  #g-btn { display: none;}
+ .select { display: inline-block; }
+}
