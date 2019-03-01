@@ -34,7 +34,7 @@ export default class Graph extends Component {
   render() {
     const { chartData } = this.props
     return (
-      <div className='uk-height-1-1 uk-width-1-1 chart' >
+      <div className='chart' >
         <Line
           data={chartData}
           options={{

@@ -1,32 +1,27 @@
-.one-stock, .stock-info {
-  min-width: 1007px;
-  max-width: 1260px;
-  margin: auto;
-  padding: 0;
-}
-
 .stock-info {
-  background: rgb(251, 253, 253);
+  /* min-width: 1007px;
+  max-width: 1260px; */
+  margin: auto;
+  margin-top: 1px;
+  /* margin: 10px 10px 0px 10px; */
+  padding: 0;
 }
 
 .stock-head {
   padding: .5em;
   border-left: 10px solid grey;
-  color: black;
-
+  color: white;
 }
 
 
 .stock-head-bullish {
   border-left: 10px solid rgb(39, 211, 39);
-  /* border-top: 10px solid rgb(39, 211, 39); */
   background-color: rgb(244, 247, 247);
 }
 
 
 .stock-head-bearish {
   border-left: 10px solid red;
-  /* border-top: 10px solid red; */
   background-color: rgb(251, 253, 253);
 
 }
@@ -53,17 +48,29 @@
   margin: 0;
 }
 
+.price {
+  font-weight: 600;
+  color: black;
+}
+
+.price-bearish {
+  color: red;
+  font-weight: 600;
+}
+
+.price-bullish {
+  font-weight: 600;
+  color: green;
+}
+
 .stock-details {
   font-size: 1em;
-
 }
 
 .stock-details li {
   list-style: none;
   padding: .9em;
   border-bottom: .75px solid lightgrey;
-  width: 80%;
-  /* font-weight: 600; */
   color: black;
   padding-bottom: 1px;
 }
@@ -76,19 +83,4 @@
 
 .stock-details h1 {
   font-size: 1em;
-}
-
-.price {
-  font-weight: 600;
-  color: black;
-}
-.price-bearish {
-  color: red;
-  font-weight: 600;
-
-}
-.price-bullish {
-  font-weight: 600;
-
-  color: green;
 }

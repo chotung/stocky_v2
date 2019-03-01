@@ -7,7 +7,7 @@ export default class GraphHeader extends Component{
   }
 
   render() {
-    return <div className="uk-flex-inline  graph-buttons">
+    return <div className="uk-child-width-1-1 graph-buttons">
     
     <button
       id='g-btn'
@@ -17,7 +17,7 @@ export default class GraphHeader extends Component{
     >
        {this.props.name }
     </button>
-
+  
     </div>;
   }
 }

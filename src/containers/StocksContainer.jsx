@@ -3,7 +3,6 @@ import GraphContainer from './GraphContainer'
 import StockHeader from '../components/StockHeader'
 import StockDetails from '../components/StockDetails'
 import axios from 'axios'
-// import HomeLogo from '../components/HomeLogo'
 import '../styles/stockContainer.css'
 import NewsContainer from './NewsContainer';
 
@@ -71,7 +70,7 @@ class StocksContainer extends Component {
     console.log(this.state.addData)
     return (
       <div className="one-stock">
-        <div className='uk-grid  uk-grid-width-1-2 uk-grid-width-medium-1-3 uk-grid-width-large-1-6 uk-padding-remove stock-info'>
+        <div className=' uk-grid-match uk-grid uk-grid-stack stock-info'>
             <StockHeader
               symbol={symbol}
               name={companyName}

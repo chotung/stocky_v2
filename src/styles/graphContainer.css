@@ -1,6 +1,13 @@
 
 .graph {
   /* background-color: rgb(239, 239, 239); */
+  padding: 0;
+}
+
+
+.btn-group {
+  display: flex;
+  flex-direction: row;
 }
 
 #g-btn {

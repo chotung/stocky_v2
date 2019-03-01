@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import GraphHeader from '../components/GraphHeader'
+import Dropdown from '../components/Dropdown'
 import Graph from '../components/Graph'
 import axios from 'axios'
 import '../styles/graphContainer.css'
@@ -152,6 +153,19 @@ class GraphContainer extends Component {
     })
    }
 
+   dropdown = () => {
+     return this.state.timeFrame.map((click, i ) => {
+       return <Dropdown 
+        key={click.name}
+        name={click.name}
+        index={ i }
+        isActive={ this.state.activeIndex === i }
+        onClick={ this.handleClick }
+        />
+     })
+   }
+   
+
   
 
  
@@ -159,11 +173,19 @@ class GraphContainer extends Component {
     const { chartData, range,  } = this.state
     // let classes = classnames( {active: this.state.active} )
     return (
-      <div className='uk-width-1-2@m uk-height-1-2@m graph'>
-       <div className='uk-margin-left` btn-group' >
+      <div className='uk-width-1-1 graph'>
+
+      {/* render buttons if large screen */}
+       <div className='uk-child-width-1-1 btn-group' >
         {this.timeButtons()}
        </div>
 
+
+
+      {/* Else Render dropdown mobile */}
+      <select>
+        {this.dropdown()}
+      </select>
 
         {/* {this.renderButton()} */}
         {this.state.show === false ? null : (
