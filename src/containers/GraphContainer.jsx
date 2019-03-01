@@ -21,6 +21,7 @@ class GraphContainer extends Component {
     symbol: this.props.stockSymbol,
     activeIndex: 1,
     range: '5d',
+    value: 1
 
   }
 
@@ -153,21 +154,24 @@ class GraphContainer extends Component {
     })
    }
 
-   dropdown = () => {
-     return this.state.timeFrame.map((click, i ) => {
-       return <Dropdown 
-        key={click.name}
-        name={click.name}
-        index={ i }
-        isActive={ this.state.activeIndex === i }
-        onClick={ this.handleClick }
-        />
-     })
-   }
+  //  dropdown = () => {
+  //    return this.state.timeFrame.map((click, i ) => {
+  //      return <Dropdown 
+  //       key={click.name}
+  //       name={click.name}
+  //       index={ i }
+  //       isActive={ this.state.activeIndex === i }
+  //       onClick={ this.handleClick }
+  //       />
+  //    })
+  //  }
    
 
   
-
+   pp = (event) => {
+     this.setState({ range: event.target.value }, 
+      ()=> this.chartData())
+   }
  
   render () {
     const { chartData, range,  } = this.state
@@ -183,8 +187,15 @@ class GraphContainer extends Component {
 
 
       {/* Else Render dropdown mobile */}
-      <select>
-        {this.dropdown()}
+      <select value={this.state.range} onChange={this.pp}>
+        {/* {this.dropdown()} */}
+        <option value="1d" >1D</option>        
+        <option value="5d" >5D</option>
+        <option value="1m" >1M</option>
+        <option value="6m" >6M</option>
+        <option value="YTD" >YTD</option>
+        <option value="1y" >1Y</option>
+        <option value="5y" >5Y</option>
       </select>
 
         {/* {this.renderButton()} */}
