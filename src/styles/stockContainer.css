@@ -1,3 +1,6 @@
+.one-stock {
+  margin:1px 3em 0 3em;
+}
 .stock-info {
   /* min-width: 1007px;
   max-width: 1260px; */
@@ -83,4 +86,10 @@
 
 .stock-details h1 {
   font-size: 1em;
+}
+
+
+
+@media (max-width: 960px) {
+  .one-stock { margin: 0px;}
 }
