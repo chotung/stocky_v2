@@ -13,10 +13,13 @@ class StocksContainer extends Component {
     this.state = {
       data: [],
       symbol: props.stockSymbol,
-      addData: []
+      addData: [],
+      news: []
     }
+
     this.getQuote()
     this.getStats()
+    this.getNews()
   }
   
 
@@ -24,6 +27,7 @@ class StocksContainer extends Component {
     if(this.props.stockSymbol !== prevProps.stockSymbol) {
       this.getQuote()
       this.getStats()
+      this.getNews()
     }
   }
 
@@ -63,11 +67,22 @@ class StocksContainer extends Component {
       })
   }
 
+  getNews = () => {
+    const symbol = this.state.symbol
+    axios
+      .get(`https://api.iextrading.com/1.0/stock/${symbol}/news/last/5`)
+      .then(article => {
+        this.setState({
+          news: article.data
+        })
+      })
+  }
+
 
   render () {
     const { companyName, close, changePercent, change } = this.state.data
-    const { data, symbol, addData } = this.state
-    console.log(this.state.addData)
+    const { data, symbol, addData, news } = this.state
+    // console.log(this.state.addData)
     return (
       <div className="one-stock">
         <div className=' uk-grid-match uk-grid uk-grid-stack stock-info'>
@@ -81,6 +96,7 @@ class StocksContainer extends Component {
             />
             <StockDetails stock={data} addData={addData} />
             <GraphContainer stockSymbol={symbol} />
+            <NewsContainer news={news} />
           </div>
       </div>
     )

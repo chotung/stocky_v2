@@ -1,13 +1,15 @@
-.news {
-  max-width: 1260px;
-  min-width: 1006px;
-  margin: auto;
-  /* width: 90%; */
-  /* text-align: justify; */
-  /* height: 100%; */
-  /* border-top: 1px solid grey; */
-}
 
-.uk-article {
-  height: 80%;
+
+@media (max-width:960px) {
+  .article h1{
+    font-size: .8rem;
+  }
+
+  .article p {
+    font-size: .7rem;
+  }
+
+  .article a {
+    font-size: .6em;
+  }
 }

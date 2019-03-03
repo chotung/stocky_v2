@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import GraphHeader from '../components/GraphHeader'
-import Dropdown from '../components/Dropdown'
 import Graph from '../components/Graph'
 import axios from 'axios'
 import '../styles/graphContainer.css'
@@ -154,18 +153,6 @@ class GraphContainer extends Component {
     })
    }
 
-  //  dropdown = () => {
-  //    return this.state.timeFrame.map((click, i ) => {
-  //      return <Dropdown 
-  //       key={click.name}
-  //       name={click.name}
-  //       index={ i }
-  //       isActive={ this.state.activeIndex === i }
-  //       onClick={ this.handleClick }
-  //       />
-  //    })
-  //  }
-   
 
   
    pp = (event) => {
@@ -184,11 +171,8 @@ class GraphContainer extends Component {
         {this.timeButtons()}
        </div>
 
-
-
       {/* Else Render dropdown mobile */}
       <select className='select'value={this.state.range} onChange={this.pp}>
-        {/* {this.dropdown()} */}
         <option value="1d" >1D</option>        
         <option value="5d" >5D</option>
         <option value="1m" >1M</option>
@@ -198,7 +182,6 @@ class GraphContainer extends Component {
         <option value="5y" >5Y</option>
       </select>
 
-        {/* {this.renderButton()} */}
         {this.state.show === false ? null : (
           <Graph chartData={chartData} range={range} />
         )}

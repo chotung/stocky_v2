@@ -6,6 +6,7 @@ import Select from "react-select";
 import MenuList from "./components/MenuList";
 // import NewsContainer from "./containers/NewsContainer";
 import "uikit";
+import NewsContainer from "./containers/NewsContainer";
 
 const url = "https://api.iextrading.com/1.0/ref-data/symbols";
 const options = [];
@@ -21,18 +22,18 @@ class App extends Component {
 
   componentDidMount() {
     this.fetchData();
-    // this.getNews();
+    this.getNews();
   }
 
 
 
-  // getNews = () => {
-  //   axios
-  //     .get("https://api.iextrading.com/1.0//stock/market/news/last/5")
-  //     .then(news => {
-  //       this.setState({ news: news.data });
-  //     });
-  // };
+  getNews = () => {
+    axios
+      .get("https://api.iextrading.com/1.0//stock/market/news/last/5")
+      .then(news => {
+        this.setState({ news: news.data });
+      });
+  };
 
   fetchData = () => {
     axios.get(url).then(companies => {
@@ -72,7 +73,6 @@ class App extends Component {
         <div className="uk-child-width-1-2@l  uk-child-width-1-1@m uk-grid-match uk-grid uk-grid-stack top-bar">
           <h1
             id="head"
-            // className="uk-width-1-2 uk-width-small-1"
             className="uk-margin-medium-left uk-align-center uk-width-1-4@l"
             onClick={this.goHome}
           >
@@ -89,7 +89,7 @@ class App extends Component {
             />
           </div>
         </div>
-
+        {searching ? <NewsContainer news={news} /> : null}
         {searching ? null : (
           <StocksContainer
             stockSymbol={singleStock.value.symbol}

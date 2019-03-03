@@ -5,9 +5,9 @@ export default function News(props) {
   const {  headline, url, summary, } = props.article
 
   return (
-    <article className='uk-padding-remove uk-article' >
+    <article className='uk-margin-small-top uk-width-1-1 uk-article article' >
       <h1 className="uk-article-title">{headline}</h1>
-      <p className='uk-article-meta'>{summary}</p>
+      <p className='uk-margin-remove uk-article-meta'>{summary}</p>
       <a className='uk-link-text' href={url} target='_blank' rel="noopener noreferrer" >{url}</a>
     </article>
   )
