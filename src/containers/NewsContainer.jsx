@@ -17,7 +17,7 @@ export default class NewsContainer extends Component {
 
 
   render() {
-    return <div className="uk-flex uk-flex-column news">
+    return <div className="uk-flex uk-flex-column uk-padding-remove  news">
         {this.newsFeed()}
       </div>;
   }
