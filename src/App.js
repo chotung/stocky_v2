@@ -6,10 +6,16 @@ import Select from "react-select";
 import MenuList from "./components/MenuList";
 // import NewsContainer from "./containers/NewsContainer";
 import "uikit";
-import NewsContainer from "./containers/NewsContainer";
+// import NewsContainer from "./containers/NewsContainer";
 
-const url = "https://api.iextrading.com/1.0/ref-data/symbols";
+
+// const url = "https://api.iextrading.com/1.0/ref-data/symbols";
+
+const url = 'https://financialmodelingprep.com/api/v3/company/stock/list'
 const options = [];
+
+
+
 
 class App extends Component {
   state = {
@@ -22,24 +28,24 @@ class App extends Component {
 
   componentDidMount() {
     this.fetchData();
-    this.getNews();
+    // this.getNews();
   }
 
 
-
-  getNews = () => {
-    axios
-      .get("https://api.iextrading.com/1.0//stock/market/news/last/5")
-      .then(news => {
-        this.setState({ news: news.data });
-      });
-  };
+  // getNews = () => {
+  //   axios
+  //     .get("https://api.iextrading.com/1.0//stock/market/news/last/5")
+  //     .then(news => {
+  //       this.setState({ news: news.data });
+  //     });
+  // };
 
   fetchData = () => {
     axios.get(url).then(companies => {
-      companies.data.map(comp => {
+      // console.log(companies.data.symbolsList)
+      companies.data.symbolsList.map(comp => {
         return options.push({
-          value: comp,
+          value: comp,  
           label: comp.symbol + "/" + comp.name
         });
       });
@@ -89,7 +95,7 @@ class App extends Component {
             />
           </div>
         </div>
-        {searching ? <NewsContainer news={news} /> : null}
+        {/* {searching ? <NewsContainer news={news} /> : null} */}
         {searching ? null : (
           <StocksContainer
             stockSymbol={singleStock.value.symbol}
