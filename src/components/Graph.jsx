@@ -40,7 +40,7 @@ export default class Graph extends Component {
           options={{
             title: {
               display: true,
-              text: this.convertRange()
+              // text: this.convertRange()
             },
             legend: {
               display: false

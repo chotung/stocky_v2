@@ -144,7 +144,6 @@ class GraphContainer extends Component {
   //         break;
   //     }
   //   })
-    
   // }
   handleClick = (index, e) => {
     this.setState({ activeIndex: index },
