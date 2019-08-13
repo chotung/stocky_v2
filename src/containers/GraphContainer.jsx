@@ -51,7 +51,6 @@ class GraphContainer extends Component {
     const range = this.state.range
     axios
       // .get(`https://api.iextrading.com/1.0/stock/${symbol}/chart/${range}`)
-      // .get(`https://financialmodelingprep.com/api/v3/historical-price-full/${symbol}?timeseries=${range}`)
       .get(`https://financialmodelingprep.com/api/v3/historical-price-full/${symbol}?timeseries=${range}`)
       .then(res => {
         let quotes = res.data.historical
@@ -62,27 +61,24 @@ class GraphContainer extends Component {
         quotes.forEach(quote => {
           openPrice.push(quote.open)
           label.push(quote.date)
+          /**
+         * was for previous api
+         * 
+         * if (range === '1d') {
+            let tempTime = quote.minute.split(':')
+            if (tempTime[1] * 1 === 30) {
+              // console.log(quote);
+              label.push(quote.label)
+              openPrice.push(quote.marketAverage)
+            }
+          } else {
+            // This I always want to do
+            label.push(quote.label)
+            openPrice.push(quote.open)
+          }
+         */ 
         })
-       
-        // quotes.forEach(quote => {
-      
-        //   if (range === '1d') {
-        //   if (range === '1d') {
-        //     let tempTime = quote.minute.split(':')
-        //     if (tempTime[1] * 1 === 30) {
-        //       // console.log(quote);
-        //       label.push(quote.label)
-        //       openPrice.push(quote.marketAverage)
-        //     }
-        //   } else {
-        //     // This I always want to do
-        //     label.push(quote.label)
-        //     openPrice.push(quote.open)
-        //   }
-        // })
         this.setGraph(label, openPrice)
-
-
       })
 
   }

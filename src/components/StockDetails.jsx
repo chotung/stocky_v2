@@ -1,11 +1,9 @@
 import React from 'react'
 
-// function removeHMS(date) {
-
-//   const time = date.split(' ')
-  
-//   return time[0]
-// }
+function removeHMS(date) {
+  const time = date.split(' ')  
+  return time[0]
+}
 
 
 function dayRange(low, high) {
@@ -28,7 +26,7 @@ function week52Range(low52, high52) {
 const StockDetails = (props) => {
   console.log('props', props);
   const { open, high, low, marketCap, peRatio, previousClose, week52High, week52Low, iexBidPrice, iexAskPrice, iexVolume, avgTotalVolume } = props.stock;
-  // const { beta, ttmEPS, dividendYield, dividendRate, exDividendDate} = props.addData
+  const { beta, ttmEPS, dividendYield, dividendRate, exDividendDate} = props.addData
 
   return <div className=" uk-grid-match uk-grid uk-grid-stack stock-details">
       <ul className="uk-width-1-2@l details-1">
@@ -44,13 +42,13 @@ const StockDetails = (props) => {
         {avgTotalVolume}
       </ul>
     <ul className="uk-width-1-2@l details-2">
-        {/* <li>Avg Volume: {avgTotalVolume ? avgTotalVolume : 'N/A'}</li>
+        <li>Avg Volume: {avgTotalVolume ? avgTotalVolume : 'N/A'}</li>
         <li>MKT CAP: {marketCap ? (marketCap / Math.pow(10, 9)).toFixed(2): 'N/A'} B</li>
         <li>Beta: {beta ? beta.toFixed(2) : 'N/A'}</li>
         <li>P/E Ratio: {peRatio ? peRatio: 'N/A'}</li>
         <li>EPS(TTM): {ttmEPS ? ttmEPS.toFixed(2) : 'N/A'}</li>
         <li>Forward Div &amp; Yield: {dividendRate ? dividendRate : 'N/A'} {dividendYield ? `(${dividendYield.toFixed(2)})` : ''} </li>
-        <li>Ex-Dividend Date: {exDividendDate ? removeHMS(exDividendDate): 'N/A'} </li> */}
+        <li>Ex-Dividend Date: {exDividendDate ? removeHMS(exDividendDate): 'N/A'} </li>
       </ul>
     </div>;
 }

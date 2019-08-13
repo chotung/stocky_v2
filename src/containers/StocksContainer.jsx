@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import GraphContainer from './GraphContainer'
 import StockHeader from '../components/StockHeader'
-// import StockDetails from '../components/StockDetails'
+import StockDetails from '../components/StockDetails'
 import axios from 'axios'
 import '../styles/stockContainer.css'
 // import NewsContainer from './NewsContainer';
@@ -68,23 +68,13 @@ class StocksContainer extends Component {
     //   })
   }
 
-  // getNews = () => {
-  //   const symbol = this.state.symbol
-  //   axios
-  //     .get(`https://api.iextrading.com/1.0/stock/${symbol}/news/last/5`)
-  //     .then(article => {
-  //       this.setState({
-  //         news: article.data
-  //       })
-  //     })
-  // }
 
 
   render () {
     const { companyName,  price, changesPercentage, changes } = this.state.data
     // const { companyName, ceo, price, changesPercentage, changes } = this.state.data
-    const {  symbol } = this.state
-    // const { data, symbol, addData } = this.state
+    // const {  symbol } = this.state
+    const { data, symbol, addData } = this.state
     
     // console.log( companyName )
     // console.log('le state', this.state.data.profile.ceo)
