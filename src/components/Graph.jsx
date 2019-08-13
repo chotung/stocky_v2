@@ -14,17 +14,17 @@ export default class Graph extends Component {
     switch(range) {
       case '1d':
         return '1 Day'
-      case '5d':
+      case '5':
         return '5 Days'
-      case '1m':
+      case '30':
         return '1 Month'
-      case '6m':
+      case '180':
         return '6 Months'
       case 'YTD':
         return 'YTD'
-      case '1y':
+      case '365':
         return '1 Year'
-      case '5y':
+      case '1825':
         return '5 Year'
       default:
       break

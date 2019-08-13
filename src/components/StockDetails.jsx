@@ -1,11 +1,11 @@
 import React from 'react'
 
-function removeHMS(date) {
+// function removeHMS(date) {
 
-  const time = date.split(' ')
+//   const time = date.split(' ')
   
-  return time[0]
-}
+//   return time[0]
+// }
 
 
 function dayRange(low, high) {
@@ -39,6 +39,9 @@ const StockDetails = (props) => {
         {dayRange(low, high)}
         {week52Range(week52Low, week52High)}
         <li>Volume: {iexVolume ? iexVolume : 'N/A'}</li>
+        {marketCap}
+        {peRatio}
+        {avgTotalVolume}
       </ul>
     <ul className="uk-width-1-2@l details-2">
         {/* <li>Avg Volume: {avgTotalVolume ? avgTotalVolume : 'N/A'}</li>

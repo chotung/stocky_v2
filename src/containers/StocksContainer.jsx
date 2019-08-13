@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import GraphContainer from './GraphContainer'
 import StockHeader from '../components/StockHeader'
-import StockDetails from '../components/StockDetails'
+// import StockDetails from '../components/StockDetails'
 import axios from 'axios'
 import '../styles/stockContainer.css'
-import NewsContainer from './NewsContainer';
-import { async } from 'q';
+// import NewsContainer from './NewsContainer';
+// import { async } from 'q';
 
 
 class StocksContainer extends Component {
@@ -81,11 +81,14 @@ class StocksContainer extends Component {
 
 
   render () {
-    const { companyName, ceo, price, changesPercentage, changes } = this.state.data
-    const { data, symbol, addData } = this.state
+    const { companyName,  price, changesPercentage, changes } = this.state.data
+    // const { companyName, ceo, price, changesPercentage, changes } = this.state.data
+    const {  symbol } = this.state
+    // const { data, symbol, addData } = this.state
+    
     // console.log( companyName )
     // console.log('le state', this.state.data.profile.ceo)
-    console.log(companyName, ceo, price, changes, changesPercentage);
+    // console.log(companyName, ceo, price, changes, changesPercentage);
     return (
       <div className="one-stock">
         <div className=' uk-grid-match uk-grid uk-grid-stack stock-info'>
@@ -97,7 +100,7 @@ class StocksContainer extends Component {
               price_change={changes}
 
             />
-            <StockDetails stock={data} addData={addData} />
+            {/* <StockDetails stock={data} addData={addData} /> */}
             <GraphContainer stockSymbol={symbol} />
             {/* <NewsContainer news={news} /> */}
           </div>

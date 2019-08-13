@@ -22,8 +22,8 @@ class App extends Component {
     stocks: [{}],
     singleStock: {},
     selectedOption: null,
-    searching: true,
-    news: []
+    searching: true
+    // news: []
   };
 
   componentDidMount() {
