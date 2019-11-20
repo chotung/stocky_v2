@@ -56,6 +56,7 @@ class App extends Component {
   };
 
   handleChange = selectedOption => {
+    // dispatch the actions
     this.setState({ selectedOption });
     this.setState({
       singleStock: selectedOption,
@@ -64,11 +65,13 @@ class App extends Component {
   };
 
   handleHomeClick = () => {
+    // dispatch the actions
     this.setState({ searching: true });
     this.setState({ selectedOption: null });
   };
 
   goHome = () => {
+    // dispatch the actions
     this.setState({ searching: true });
   };
 
