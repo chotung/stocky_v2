@@ -5,7 +5,7 @@ function StockHeader(props) {
   // console.log(net)
   return (
     <div className={"uk-width-1-1 stock-head" + (net < 0 ? '-bearish' : '-bullish') }>
-      <p className='uk-margin-small-top company-name'>{name} ({symbol})</p>`
+      <p className='uk-margin-small-top company-name'>{name} ({symbol})</p>
       <h1 className='price-usd'>{price}$</h1>
       <p className={'uk-margin-small-bottom price' + (net < 0 ? '-bearish' : '-bullish' ) } >{price_change} {net}</p>
 
