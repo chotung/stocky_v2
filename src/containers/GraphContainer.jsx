@@ -146,6 +146,8 @@ class GraphContainer extends Component {
   //   })
   // }
   handleClick = (index, e) => {
+
+    // DISPATCH ACTION
     this.setState({ activeIndex: index },
     () => {
       switch (this.state.activeIndex) {
@@ -197,6 +199,8 @@ class GraphContainer extends Component {
 
   
    setRange = (event) => {
+
+    // DISPATCH ACTIONS
      this.setState({ range: event.target.value }, 
       ()=> this.chartData())
    }
