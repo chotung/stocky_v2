@@ -3,7 +3,7 @@ import GraphHeader from '../components/GraphHeader'
 import Graph from '../components/Graph'
 import axios from 'axios'
 import '../styles/graphContainer.css'
-
+// Can convert into a functional component
 // Removed  1D 
 class GraphContainer extends Component {
   state = {

@@ -5,12 +5,18 @@ const initialState = {
   searching: true
 };
 /**
- *    data: [],
-      symbol: props.stockSymbol,
-      addData: [],
-      news: []
- */
+ * APP STATE
+ * stocks: [{}],
+  singleStock: {},
+  selectedOption: null,
+  searching: true
 
+  STOCKS CONTAINER STATE
+  data: [],
+  symbol: props.stockSymbol,  SHOULD USE THE SYMBOL FROM SINGLESTOCK.VALUE.SYMBOL
+  addData: [],
+  news: []
+ */
 
 
 
