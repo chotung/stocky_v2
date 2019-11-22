@@ -56,8 +56,8 @@ class GraphContainer extends Component {
         let quotes = res.data.historical
         let label = []
         let openPrice = []
-        console.log(openPrice)
-        console.log('quotes', quotes);
+        // console.log(openPrice)
+        // console.log('quotes', quotes);
         quotes.forEach(quote => {
           openPrice.push(quote.open)
           label.push(quote.date)

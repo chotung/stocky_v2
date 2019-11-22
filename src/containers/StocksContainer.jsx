@@ -74,7 +74,8 @@ class StocksContainer extends Component {
     const { companyName,  price, changesPercentage, changes } = this.state.data
     // const { companyName, ceo, price, changesPercentage, changes } = this.state.data
     // const {  symbol } = this.state
-    const { data, symbol, addData } = this.state
+    // const { data, symbol, addData } = this.state
+    const { symbol } = this.state
     
     // console.log( companyName )
     // console.log('le state', this.state.data.profile.ceo)
