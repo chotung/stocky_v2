@@ -206,8 +206,9 @@ class GraphContainer extends Component {
    }
  
   render () {
+    console.log("graph state", this.state);
     const { chartData, range,  } = this.state
-    console.log(range);
+    // console.log(range);
     return (
       <div className='uk-width-1-1 graph'>
 

@@ -4,10 +4,7 @@ import axios from "axios";
 import StocksContainer from "./containers/StocksContainer";
 import Select from "react-select";
 import MenuList from "./components/MenuList";
-// import NewsContainer from "./containers/NewsContainer";
 import "uikit";
-// import NewsContainer from "./containers/NewsContainer";
-
 
 // const url = "https://api.iextrading.com/1.0/ref-data/symbols";
 
@@ -20,29 +17,16 @@ const options = [];
 class App extends Component {
   state = {
     stocks: [{}],
-    singleStock: {},
-    selectedOption: null,
+    singleStock: null,
     searching: true
-    // news: []
   };
 
   componentDidMount() {
     this.fetchData();
-    // this.getNews();
   }
-
-
-  // getNews = () => {
-  //   axios
-  //     .get("https://api.iextrading.com/1.0//stock/market/news/last/5")
-  //     .then(news => {
-  //       this.setState({ news: news.data });
-  //     });
-  // };
 
   fetchData = () => {
     axios.get(url).then(companies => {
-      // console.log(companies.data.symbolsList)
       companies.data.symbolsList.map(comp => {
         return options.push({
           value: comp,  
@@ -55,11 +39,11 @@ class App extends Component {
     });
   };
 
-  handleChange = selectedOption => {
-    // dispatch the actions
-    this.setState({ selectedOption });
+  handleChange = singleStock => {
+  
+    this.setState({ singleStock });
     this.setState({
-      singleStock: selectedOption,
+      singleStock,
       searching: false
     });
   };
@@ -67,15 +51,12 @@ class App extends Component {
   handleHomeClick = () => {
     // dispatch the actions
     this.setState({ searching: true });
-    this.setState({ selectedOption: null });
+    this.setState({ singleStock: null });
   };
 
-  goHome = () => {
-    // dispatch the actions
-    this.setState({ searching: true });
-  };
 
   render() {
+    console.log('app state', this.state)
     const { selectedOption, searching, singleStock, stocks, news } = this.state;
     return (
       <div className="app">
@@ -83,7 +64,7 @@ class App extends Component {
           <h1
             id="head"
             className="uk-margin-medium-left uk-align-center uk-width-1-4@l"
-            onClick={this.goHome}
+            onClick={this.handleHomeClick}
           >
            Binder Finance
           </h1>
@@ -91,7 +72,7 @@ class App extends Component {
           <div className="select-bar">
             <Select
               placeholder="Ticker Symbol/Company"
-              value={selectedOption}
+              value={singleStock}
               onChange={this.handleChange}
               options={stocks}
               components={{ MenuList }}

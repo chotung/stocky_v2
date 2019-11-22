@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import GraphContainer from './GraphContainer'
 import StockHeader from '../components/StockHeader'
-import StockDetails from '../components/StockDetails'
+// import StockDetails from '../components/StockDetails'
 import axios from 'axios'
 import '../styles/stockContainer.css'
 // import NewsContainer from './NewsContainer';
@@ -71,6 +71,7 @@ class StocksContainer extends Component {
 
 
   render () {
+    console.log("stock's container", this.state);
     const { companyName,  price, changesPercentage, changes } = this.state.data
     // const { companyName, ceo, price, changesPercentage, changes } = this.state.data
     // const {  symbol } = this.state
