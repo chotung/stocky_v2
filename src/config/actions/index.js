@@ -1,3 +1,39 @@
+import Axios from "axios"
+const url = "https://financialmodelingprep.com/api/v3/company/stock/list";
+// Should add a backend route for this
+   
+export const requestPost = () => {
+  
+}
+
+
+export const recievedPost = (json) => {
+  return {
+    type: "RECIEVED_POSTS",
+    json: json.data
+  }
+}
+export const getCompanies = () => {
+  
+}
+
+export const fetchData =  () => {
+  return async (dispatch) => {
+    dispatch(requestPost()) 
+    try {
+      const res = Axios.get(url)
+      console.log(res)
+    } catch (error) {
+      console.error(error)
+    }
+  }
+}
+   
+
+
+
+
+
 /**
  * 
  * FETCH DATA

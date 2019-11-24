@@ -1,7 +1,9 @@
 const initialState = {
+  // Stocks for the search
   stocks: [{}],
+  // a single stock
   singleStock: {},
-  selectedOption: null,
+  // Conditional Rendering
   searching: true
 };
 /**
