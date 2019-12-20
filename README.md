@@ -5,7 +5,7 @@ Stock Tracker Application that shows price changes in a minimalistic form
 Created the application to help understand how prices of company stocks change over time in an intuitive way.
 
 ## Screenshots
-Include logo/demo screenshot etc.
+![image](https://user-images.githubusercontent.com/38818833/71265680-b7e86400-2314-11ea-9510-f8190eb8f774.png)
 
 
 ## Tech/framework used
