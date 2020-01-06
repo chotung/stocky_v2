@@ -49,6 +49,7 @@ class GraphContainer extends Component {
     const symbol = this.state.symbol
     // const symbol = 'AAPL'
     const range = this.state.range
+    console.log("range", range);
     axios
       // .get(`https://api.iextrading.com/1.0/stock/${symbol}/chart/${range}`)
       .get(`https://financialmodelingprep.com/api/v3/historical-price-full/${symbol}?timeseries=${range}`)
@@ -59,24 +60,9 @@ class GraphContainer extends Component {
         console.log(openPrice)
         console.log('quotes', quotes);
         quotes.forEach(quote => {
-          openPrice.push(quote.open)
-          label.push(quote.date)
-          /**
-         * was for previous api
-         * 
-         * if (range === '1d') {
-            let tempTime = quote.minute.split(':')
-            if (tempTime[1] * 1 === 30) {
-              // console.log(quote);
-              label.push(quote.label)
-              openPrice.push(quote.marketAverage)
-            }
-          } else {
-            // This I always want to do
-            label.push(quote.label)
-            openPrice.push(quote.open)
-          }
-         */ 
+          openPrice.unshift(quote.open)
+          label.unshift(quote.date)
+          // Remove some data points if the device is mobile
         })
         this.setGraph(label, openPrice)
       })
@@ -107,45 +93,6 @@ class GraphContainer extends Component {
 
   }
 
-
-  // handleClick = (index, e) => {
-  //   this.setState({ activeIndex: index },
-  //   () => {
-  //     switch (this.state.activeIndex) {
-  //       case 0:
-  //         this.setState({ range: '1d' },
-  //           () => this.chartData())
-  //         break;
-  //       case 1:
-  //         this.setState({ range: '5' },
-  //           () => this.chartData())
-  //           break;
-  //       case 2:
-  //         this.setState({ range: '1m' },
-  //           () => this.chartData())
-  //         break;
-  //       case 3:
-  //         this.setState({ range: '6m' },
-  //           () => this.chartData())
-  //           break;
-  //       case 4:
-  //         this.setState({ range: 'YTD' },
-  //           () => this.chartData())
-  //           break;
-  //       case 5:
-  //         this.setState({ range: '1y' },
-  //           () => this.chartData())
-  //           break;
-  //       case 6:
-  //         this.setState({ range: '5y' },
-  //           () => this.chartData())
-  //         break;
-  //       default:
-  //         break;
-  //     }
-  //   })
-    
-  // }
   handleClick = (index, e) => {
     this.setState({ activeIndex: index },
     () => {
@@ -203,7 +150,7 @@ class GraphContainer extends Component {
    }
  
   render () {
-    const { chartData, range,  } = this.state
+    const { chartData, range } = this.state
     console.log(range);
     return (
       <div className='uk-width-1-1 graph'>
@@ -214,14 +161,14 @@ class GraphContainer extends Component {
        </div>
 
       {/* Else Render dropdown mobile */}
-      <select className='select'value={this.state.range} onChange={this.setRange}>
+      <select className='select' value={this.state.range} onChange={this.setRange}>
         {/* <option value="1d" >1D</option>         */}
         <option value="5" >5D</option>
-        <option value="1m" >1M</option>
-        <option value="6m" >6M</option>
+        <option value="30" >1M</option>
+        <option value="180" >6M</option>
         {/* <option value="YTD" >YTD</option> */}
-        <option value="1y" >1Y</option>
-        <option value="5y" >5Y</option>
+        <option value="365" >1Y</option>
+        <option value="1825" >5Y</option>
       </select>
 
         {this.state.show === false ? null : (
