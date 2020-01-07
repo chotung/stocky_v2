@@ -4,8 +4,10 @@ import axios from "axios";
 import StocksContainer from "./containers/StocksContainer";
 import Select from "react-select";
 import MenuList from "./components/MenuList";
+import Login from "./components/Login"
+import Signup from "./components/Signup"
 // import NewsContainer from "./containers/NewsContainer";
-import "uikit";
+// import "uikit";
 // import NewsContainer from "./containers/NewsContainer";
 
 
@@ -16,8 +18,8 @@ const options = [];
 const selectStyles = {
   option: (provided, state) => ({
     ...provided,
-    color: "midnightBlue",
-  })
+    color: "midnightBlue"
+  }),
 };
 
 
@@ -27,7 +29,8 @@ class App extends Component {
     stocks: [{}],
     singleStock: {},
     selectedOption: null,
-    searching: true
+    searching: true,
+    login: false
     // news: []
   };
 
@@ -67,21 +70,29 @@ class App extends Component {
   goHome = () => {
     this.setState({ searching: true });
   };
-
+  swapLogin = () => {
+    this.setState(prevState => ({
+      login: !prevState.login
+    }))
+  }
+  
   render() {
     const { selectedOption, searching, singleStock, stocks, news } = this.state;
     return (
       <div className="app">
-        <div className="uk-child-width-1-2@l  uk-child-width-1-1@m uk-grid-match uk-grid uk-grid-stack top-bar">
+        <div className="top-bar">
           <h1
             id="head"
-            className="uk-margin-medium-left uk-width-1-4@l"
+            className=""
             // className="uk-margin-medium-left uk-align-center uk-width-1-4@l"
             onClick={this.goHome}
           >
-           Binder Finance
+            Stocky
           </h1>
-
+          <div className="account">
+            <p onClick={this.swapLogin}>signup</p>
+            <p onClick={this.swapLogin}>login</p>
+          </div>
           <div className="select-bar">
             <Select
               styles={selectStyles}
@@ -101,6 +112,7 @@ class App extends Component {
             news={news}
           />
         )}
+        {this.state.login ? <Login /> : <Signup />}
       </div>
     );
   }
