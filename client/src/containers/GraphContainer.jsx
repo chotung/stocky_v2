@@ -49,7 +49,7 @@ class GraphContainer extends Component {
     const symbol = this.state.symbol
     // const symbol = 'AAPL'
     const range = this.state.range
-    console.log("range", range);
+    
     axios
       // .get(`https://api.iextrading.com/1.0/stock/${symbol}/chart/${range}`)
       .get(`https://financialmodelingprep.com/api/v3/historical-price-full/${symbol}?timeseries=${range}`)
@@ -57,8 +57,8 @@ class GraphContainer extends Component {
         let quotes = res.data.historical
         let label = []
         let openPrice = []
-        console.log(openPrice)
-        console.log('quotes', quotes);
+        
+        
         quotes.forEach(quote => {
           openPrice.unshift(quote.open)
           label.unshift(quote.date)
@@ -130,7 +130,7 @@ class GraphContainer extends Component {
 
    timeButtons = () => {
     return this.state.timeFrame.map((click, i ) => {
-      // console.log(click);
+      // 
       return <GraphHeader 
         key={click.name}
         name={click.name}
@@ -151,7 +151,7 @@ class GraphContainer extends Component {
  
   render () {
     const { chartData, range } = this.state
-    console.log(range);
+    
     return (
       <div className='uk-width-1-1 graph'>
 

@@ -13,7 +13,12 @@ import "uikit";
 
 const url = 'https://financialmodelingprep.com/api/v3/company/stock/list'
 const options = [];
-
+const selectStyles = {
+  option: (provided, state) => ({
+    ...provided,
+    color: "midnightBlue",
+  })
+};
 
 
 
@@ -30,16 +35,7 @@ class App extends Component {
     this.fetchData();
     // this.getNews();
   }
-
-
-  // getNews = () => {
-  //   axios
-  //     .get("https://api.iextrading.com/1.0//stock/market/news/last/5")
-  //     .then(news => {
-  //       this.setState({ news: news.data });
-  //     });
-  // };
-
+  
   fetchData = () => {
     axios.get(url).then(companies => {
       // console.log(companies.data.symbolsList)
@@ -79,7 +75,8 @@ class App extends Component {
         <div className="uk-child-width-1-2@l  uk-child-width-1-1@m uk-grid-match uk-grid uk-grid-stack top-bar">
           <h1
             id="head"
-            className="uk-margin-medium-left uk-align-center uk-width-1-4@l"
+            className="uk-margin-medium-left uk-width-1-4@l"
+            // className="uk-margin-medium-left uk-align-center uk-width-1-4@l"
             onClick={this.goHome}
           >
            Binder Finance
@@ -87,6 +84,7 @@ class App extends Component {
 
           <div className="select-bar">
             <Select
+              styles={selectStyles}
               placeholder="Ticker Symbol/Company"
               value={selectedOption}
               onChange={this.handleChange}
