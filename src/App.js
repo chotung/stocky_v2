@@ -25,7 +25,7 @@ class App extends Component {
   };
 
   componentDidMount() {
-    this.fetchData();
+    // this.fetchData();
     console.log("process key", process.env.REACT_APP_API_KEY);
 
     // this.getNews();
