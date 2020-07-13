@@ -13,7 +13,6 @@ import "uikit";
 
 const url = `https://financialmodelingprep.com/api/v3/company/stock/list?apikey=${process.env.API_KEY}`
 const options = [];
-console.log(process.env.API_KEY);
 
 
 class App extends Component {
@@ -73,6 +72,8 @@ class App extends Component {
 
   render() {
     const { selectedOption, searching, singleStock, stocks, news } = this.state;
+    console.log("process key", process.env.API_KEY);
+
     return (
       <div className="app">
         <div className="uk-child-width-1-2@l  uk-child-width-1-1@m uk-grid-match uk-grid uk-grid-stack top-bar">
