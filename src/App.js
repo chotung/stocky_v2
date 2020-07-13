@@ -26,7 +26,7 @@ class App extends Component {
 
   componentDidMount() {
     this.fetchData();
-    console.log("process key", process.env.API_KEY);
+    console.log("process key", process.env.REACT_APP_API_KEY);
 
     // this.getNews();
   }
@@ -74,7 +74,6 @@ class App extends Component {
 
   render() {
     const { selectedOption, searching, singleStock, stocks, news } = this.state;
-    alert("process key", process.env.API_KEY);
 
     return (
       <div className="app">
@@ -97,6 +96,8 @@ class App extends Component {
             />
           </div>
         </div>
+        <h2>{process.env.NODE_ENV}</h2>
+        <h2>{process.env.REACT_APP_API_KEY}</h2>
         {/* {searching ? <NewsContainer news={news} /> : null} */}
         {searching ? null : (
           <StocksContainer
