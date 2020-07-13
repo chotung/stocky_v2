@@ -26,6 +26,8 @@ class App extends Component {
 
   componentDidMount() {
     this.fetchData();
+    console.log("process key", process.env.API_KEY);
+
     // this.getNews();
   }
 
@@ -72,7 +74,7 @@ class App extends Component {
 
   render() {
     const { selectedOption, searching, singleStock, stocks, news } = this.state;
-    console.log("process key", process.env.API_KEY);
+    alert("process key", process.env.API_KEY);
 
     return (
       <div className="app">
