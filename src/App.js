@@ -11,10 +11,9 @@ import "uikit";
 
 // const url = "https://api.iextrading.com/1.0/ref-data/symbols";
 
-const url = 'https://financialmodelingprep.com/api/v3/company/stock/list'
+const url = `https://financialmodelingprep.com/api/v3/company/stock/list?apikey=${process.env.API_KEY}`
 const options = [];
-
-
+console.log(process.env.API_KEY);
 
 
 class App extends Component {
