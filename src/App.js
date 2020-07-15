@@ -5,7 +5,9 @@ import StocksContainer from "./containers/StocksContainer";
 import Select from "react-select";
 import MenuList from "./components/MenuList";
 import "uikit";
-import apiKey  from "./secret.json"
+if(process.env.NODE_ENV === "development") {
+  import apiKey  from "./secret.json"
+}
 
 // const url = "https://api.iextrading.com/1.0/ref-data/symbols";
 const key = process.env.REACT_APP_API_KEY ||  apiKey.APIKEY
