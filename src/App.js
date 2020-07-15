@@ -4,14 +4,13 @@ import axios from "axios";
 import StocksContainer from "./containers/StocksContainer";
 import Select from "react-select";
 import MenuList from "./components/MenuList";
-// import NewsContainer from "./containers/NewsContainer";
 import "uikit";
-// import NewsContainer from "./containers/NewsContainer";
-
+import apiKey  from "./secret.json"
 
 // const url = "https://api.iextrading.com/1.0/ref-data/symbols";
+const key = process.env.REACT_APP_API_KEY ||  apiKey.APIKEY
 
-const url = `https://financialmodelingprep.com/api/v3/company/stock/list?apikey=${process.env.REACT_APP_API_KEY}`
+const url = `https://financialmodelingprep.com/api/v3/company/stock/list?apikey=${key}`
 const options = [];
 
 
@@ -72,7 +71,6 @@ class App extends Component {
 
   render() {
     const { selectedOption, searching, singleStock, stocks, news } = this.state;
-
     return (
       <div className="app">
         <div className="uk-child-width-1-2@l  uk-child-width-1-1@m uk-grid-match uk-grid uk-grid-stack top-bar">
@@ -100,6 +98,7 @@ class App extends Component {
             stockSymbol={singleStock.value.symbol}
             home={this.handleHomeClick}
             news={news}
+            apiKey={key}
           />
         )}
       </div>

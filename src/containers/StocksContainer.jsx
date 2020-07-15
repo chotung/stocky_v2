@@ -43,15 +43,12 @@ class StocksContainer extends Component {
   }
 
   
-  getQuote = async () => {
-    // const symbol = this.props.stock.value.symbol
-
+  getQuote = async (key) => {
     const symbol = this.state.symbol
-    let response = await axios.get(`https://financialmodelingprep.com/api/v3/company/profile/${symbol}`)
-
-        this.setState({
-          data: response.data.profile
-        })
+    let response = await axios.get(`https://financialmodelingprep.com/api/v3/company/profile/${symbol}?apikey=${this.props.apiKey}`)
+    this.setState({
+      data: response.data.profile
+    })
   }
   
 
@@ -75,7 +72,6 @@ class StocksContainer extends Component {
     // const { companyName, ceo, price, changesPercentage, changes } = this.state.data
     // const {  symbol } = this.state
     const { data, symbol, addData } = this.state
-    
     // console.log( companyName )
     // console.log('le state', this.state.data.profile.ceo)
     // console.log(companyName, ceo, price, changes, changesPercentage);
@@ -91,7 +87,7 @@ class StocksContainer extends Component {
 
             />
             {/* <StockDetails stock={data} addData={addData} /> */}
-            <GraphContainer stockSymbol={symbol} />
+            <GraphContainer stockSymbol={symbol} apiKey={this.props.apiKey} />
             {/* <NewsContainer news={news} /> */}
           </div>
       </div>
