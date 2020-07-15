@@ -1,16 +1,16 @@
-import React, { Component } from "react";
+import React, { Component, lazy, Suspense } from "react";
 import './App.css'
 import axios from "axios";
 import StocksContainer from "./containers/StocksContainer";
 import Select from "react-select";
 import MenuList from "./components/MenuList";
 import "uikit";
-if(process.env.NODE_ENV === "development") {
-  import apiKey  from "./secret.json"
-}
+// import apiKey  from "./secret.json"
 
-// const url = "https://api.iextrading.com/1.0/ref-data/symbols";
-const key = process.env.REACT_APP_API_KEY ||  apiKey.APIKEY
+// dev
+// const key = process.env.REACT_APP_API_KEY ||  apiKey.APIKEY
+// production 
+const key = process.env.REACT_APP_API_KEY 
 
 const url = `https://financialmodelingprep.com/api/v3/company/stock/list?apikey=${key}`
 const options = [];
